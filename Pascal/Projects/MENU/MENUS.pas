@@ -135,12 +135,15 @@ uses crt;
   writeln('Gol');
   writeln('Star Peru');
   writeln('Peruvian Airlines');
+  writeln;
+  textbackground(blue);
   repeat // Ask User To goto Menu/Exit.
    delay(100);
    write('Wish to see more?(y/n): ');
    readln(tempSaAirlines);
    tempSaAirlines := upcase(tempSaAirlines);
   until (tempSaAirlines = 'Y') or (tempSaAirlines = 'N');
+  textbackground(black);
  end;
  {End South American Airlines}
 
@@ -184,12 +187,15 @@ uses crt;
   writeln('Azur Air');
   writeln('AirBaltic');
   writeln('AND MORE!');
+  writeln;
+  textbackground(blue);
   repeat // Ask User To goto Menu/Exit.
    delay(100);
    write('Wish to see more?(y/n): ');
    readln(tempEuAirlines);
    tempEuAirlines := upcase(tempEuAirlines);
   until (tempEuAirlines = 'Y') or (tempEuAirlines = 'N');
+  textbackground(black);
  end;
  {Europe Airlines}
 
@@ -211,12 +217,15 @@ uses crt;
   writeln('Sinapore Airlines');
   writeln('Cathay Pacific Airways');
   writeln('AND MORE!');
+  writeln;
+  textbackground(blue);
   repeat // Ask User To goto Menu/Exit.
    delay(100);
    write('Wish to see more?(y/n): ');
    readln(tempAsiaAirlines);
    tempAsiaAirlines := upcase(tempAsiaAirlines);
   until (tempAsiaAirlines = 'Y') or (tempAsiaAirlines = 'N');
+  textbackground(black);
  end;
  {End Asia Airlines}
 
@@ -237,12 +246,15 @@ uses crt;
   writeln('Mango');
   writeln('Fastjet');
   writeln('AND MORE!');
+  writeln;
+  textbackground(blue);
   repeat // Ask User To goto Menu/Exit.
    delay(100);
    write('Wish to see more?(y/n): ');
    readln(tempAfAirlines);
    tempAfAirlines := upcase(tempAfAirlines);
   until (tempAfAirlines = 'Y') or (tempAfAirlines = 'N');
+  textbackground(black);
  end;
  {End Africa Airlines}
 
