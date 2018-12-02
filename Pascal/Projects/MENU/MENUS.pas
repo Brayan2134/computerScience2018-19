@@ -184,6 +184,18 @@ uses crt;
  begin;
   clrscr;
   writeln('African Airlines':65);
+  writeln;
+  writeln('Mainline Passenger:');
+  writeln;
+  writeln('Ethiopian Airlines');
+  writeln('South African Airways');
+  writeln('Air Mauritius');
+  writeln('Air Seychelles');
+  writeln('Kenya Airways');
+  writeln('Royal Air Maroc');
+  writeln('Mango');
+  writeln('Fastjet');
+  writeln('AND MORE!');
  end;
  {End Africa Airlines}
 
