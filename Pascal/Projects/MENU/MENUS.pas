@@ -22,7 +22,7 @@ uses crt;
  {Intro to program}
  procedure intro;
   begin
-   writeln('Welocome to the AIRLINE CATALOGE':65);
+   writeln('Welocome to the AIRLINE CATALOG':65);
    writeln;
    writeln('In this program, you can explore the different airlines.');
    writeln('Let''s begin!');
@@ -40,47 +40,99 @@ uses crt;
     writeln('[E]urope.');
     writeln('[A]sia.');
     writeln('A[F]rica.');
+    writeln('[Q]uit.');
     write('Please make a selection: ');
     readln(tempMenuSelection);
     tempMenuSelection := upcase(tempMenuSelection);
-   end;
- {End display menu}
 
- {Authenticate Selection}
-  procedure authSelection(var tempSelect: char);
-   begin
-    // Check to see if user typed a valid response
-    if (tempSelect = 'N') or (tempSelect = 'S') or (tempSelect = 'E') or (tempSelect = 'A') or (tempSelect = 'F') then
-     begin // DON'T TOUCH
-     end // DON'T TOUCH
-     else // If User types invalid char then...
-      repeat // ... Repeat loop until user types valid response.
-       begin
-        writeln('Invalid Option, Please Try Again.');
-        write('Please make another selection: ');
-        readln(tempSelect);
-        tempSelect := upcase(tempSelect);
-        end;
-       until (tempSelect = 'N') or (tempSelect = 'S') or (tempSelect = 'E') or (tempSelect = 'A') or (tempSelect = 'F');
+    {Authenticate Selection}
+    if (tempMenuSelection = 'N') or (tempMenuSelection = 'S') or (tempMenuSelection = 'E') or (tempMenuSelection = 'A') or (tempMenuSelection = 'F') or (tempMenuSelection = 'Q') then
+     begin
+      writeln;
+      writeln('THE USER HAS MADE A CORRECT CHOICE.');
+     end
+    else
+     repeat
+      writeln('That''s an incorrect selection, please try again.');
+      write('Please make a selection: ');
+      readln(tempMenuSelection);
+      tempMenuSelection := upcase(tempMenuSelection);
+     until (tempMenuSelection = 'N') or (tempMenuSelection = 'S') or (tempMenuSelection = 'E') or (tempMenuSelection = 'A') or (tempMenuSelection = 'F') or (tempMenuSelection = 'Q');
+    {End Authenticate Section}
    end;
- {End Authenticate Selection}
+ {End display menu procedure}
+
+ {North American Airlines}
+ procedure naAirlines;
+ begin
+  clrscr;
+  writeln('North American Airlines':65);
+ end;
+ {End North American Airlines}
+
+ {South American Airlines}
+ procedure saAirlines;
+ begin;
+  clrscr;
+  writeln('South American Airlines':65);
+ end;
+ {End South American Airlines}
+
+ {Europe Airlines}
+ procedure euAirlines;
+ begin;
+  clrscr;
+  writeln('European Airlines':65);
+ end;
+ {Europe Airlines}
+
+ {Asia Airlines}
+ procedure asiaAirlines;
+ begin;
+  clrscr;
+  writeln('Asian Airlines':65);
+ end;
+ {End Asia Airlines}
+
+ {Africa Airlines}
+ procedure afAirlines;
+ begin;
+  clrscr;
+  writeln('African Airlines':65);
+ end;
+ {End Africa Airlines}
 
  {Outro}
   procedure outro;
    begin
+    writeln ;
     writeln('Thank you for using this program');
+    writeln('Press any key to end the program.');
    end;
- {End Outro}
+ {End Outro procedure}
 {******************************************************************************}
 var
  menuSelection: char;
 
 begin {main}
  intro; // Intro squenence
- menu(menuSelection); // Display Menu
- authSelection(menuSelection);// Authticate
+  menu(menuSelection); // Display Menu & Authenticate
 
- // Outro
- outro;
+  // Only Options User Has At This Point: N/S/E/A/F/Q
+
+  if (menuSelection = 'Q') then // If User Types Q Then Exit Program
+  begin
+   outro;
+  end
+  else // If User Didn't Press Q Then Redirect To Desired Section
+   begin
+    case (menuSelection) of // Redirection Entrypoint
+     'N': naAirlines; // North American Airlines Point
+     'S': saAirlines; // South American Airlines Point
+     'E': euAirlines; // European Airlines Point
+     'A': asiaAirlines; // Asian Airlines Point
+     'F': afAirlines; // African Airlines Point
+    end; // End Redirection Entrypoint
+   end; // End Redirect To Desired Section
  readkey;
 end. {main}
