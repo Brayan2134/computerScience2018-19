@@ -49,7 +49,6 @@ uses crt;
     if (tempMenuSelection = 'N') or (tempMenuSelection = 'S') or (tempMenuSelection = 'E') or (tempMenuSelection = 'A') or (tempMenuSelection = 'F') or (tempMenuSelection = 'Q') then
      begin
       writeln;
-      writeln('THE USER HAS MADE A CORRECT CHOICE.');
      end
     else
      repeat
@@ -63,7 +62,7 @@ uses crt;
  {End display menu procedure}
 
  {North American Airlines}
- procedure naAirlines;
+ procedure naAirlines(var tempNaAirlines: char);
  begin
   clrscr;
   writeln('North American Airlines':65);
@@ -93,11 +92,18 @@ uses crt;
   writeln('FedEx Express');
   writeln('Polar Air Cargo');
   writeln('UPS Airlines');
+  writeln;
+  repeat // Ask User To goto Menu/Exit.
+   delay(100);
+   write('Wish to see more?(y/n): ');
+   readln(tempNaAirlines);
+   tempNaAirlines := upcase(tempNaAirlines);
+  until (tempNaAirlines = 'Y') or (tempNaAirlines = 'N');
  end;
  {End North American Airlines}
 
  {South American Airlines}
- procedure saAirlines;
+ procedure saAirlines(var tempSaAirlines: char);
  begin;
   clrscr;
   writeln('South American Airlines':65);
@@ -112,11 +118,17 @@ uses crt;
   writeln('Gol');
   writeln('Star Peru');
   writeln('Peruvian Airlines');
+  repeat // Ask User To goto Menu/Exit.
+   delay(100);
+   write('Wish to see more?(y/n): ');
+   readln(tempSaAirlines);
+   tempSaAirlines := upcase(tempSaAirlines);
+  until (tempSaAirlines = 'Y') or (tempSaAirlines = 'N');
  end;
  {End South American Airlines}
 
  {Europe Airlines}
- procedure euAirlines;
+ procedure euAirlines(var tempEuAirlines: char);
  begin;
   clrscr;
   writeln('European Airlines':65);
@@ -155,11 +167,17 @@ uses crt;
   writeln('Azur Air');
   writeln('AirBaltic');
   writeln('AND MORE!');
+  repeat // Ask User To goto Menu/Exit.
+   delay(100);
+   write('Wish to see more?(y/n): ');
+   readln(tempEuAirlines);
+   tempEuAirlines := upcase(tempEuAirlines);
+  until (tempEuAirlines = 'Y') or (tempEuAirlines = 'N');
  end;
  {Europe Airlines}
 
  {Asia Airlines}
- procedure asiaAirlines;
+ procedure asiaAirlines(tempAsiaAirlines: char);
  begin;
   clrscr;
   writeln('Asian Airlines':65);
@@ -176,11 +194,17 @@ uses crt;
   writeln('Sinapore Airlines');
   writeln('Cathay Pacific Airways');
   writeln('AND MORE!');
+  repeat // Ask User To goto Menu/Exit.
+   delay(100);
+   write('Wish to see more?(y/n): ');
+   readln(tempAsiaAirlines);
+   tempAsiaAirlines := upcase(tempAsiaAirlines);
+  until (tempAsiaAirlines = 'Y') or (tempAsiaAirlines = 'N');
  end;
  {End Asia Airlines}
 
  {Africa Airlines}
- procedure afAirlines;
+ procedure afAirlines(var tempAfAirlines: char);
  begin;
   clrscr;
   writeln('African Airlines':65);
@@ -196,6 +220,12 @@ uses crt;
   writeln('Mango');
   writeln('Fastjet');
   writeln('AND MORE!');
+  repeat // Ask User To goto Menu/Exit.
+   delay(100);
+   write('Wish to see more?(y/n): ');
+   readln(tempAfAirlines);
+   tempAfAirlines := upcase(tempAfAirlines);
+  until (tempAfAirlines = 'Y') or (tempAfAirlines = 'N');
  end;
  {End Africa Airlines}
 
@@ -224,12 +254,27 @@ begin {main}
   else // If User Didn't Press Q Then Redirect To Desired Section
    begin
     case (menuSelection) of // Redirection Entrypoint
-     'N': naAirlines; // North American Airlines Point
-     'S': saAirlines; // South American Airlines Point
-     'E': euAirlines; // European Airlines Point
-     'A': asiaAirlines; // Asian Airlines Point
-     'F': afAirlines; // African Airlines Point
+     'N': naAirlines(menuSelection); // North American Airlines Point
+     'S': saAirlines(menuSelection); // South American Airlines Point
+     'E': euAirlines(menuSelection); // European Airlines Point
+     'A': asiaAirlines(menuSelection); // Asian Airlines Point
+     'F': afAirlines(menuSelection); // African Airlines Point
     end; // End Redirection Entrypoint
+    if (menuSelection = 'Y') then // Repeat Case Above if User := Y
+     repeat
+      menu(menuSelection);
+      case (menuSelection) of // Redirection Entrypoint
+       'N': naAirlines(menuSelection); // North American Airlines Point
+       'S': saAirlines(menuSelection); // South American Airlines Point
+       'E': euAirlines(menuSelection); // European Airlines Point
+       'A': asiaAirlines(menuSelection); // Asian Airlines Point
+       'F': afAirlines(menuSelection); // African Airlines Point
+      end; // ExitPoint
+     until(menuSelection = 'N') or (menuSelection = 'Q')// Once User Types N After Loop, then Redirect to Outro
+     else
+      outro; // Outro
    end; // End Redirect To Desired Section
+
+   // End Program
  readkey;
 end. {main}
