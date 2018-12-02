@@ -14,7 +14,7 @@
               - Can exit program at any time.
 }
 
-program programname;
+program menus;
 
 {Libs}
 uses crt;
@@ -101,6 +101,17 @@ uses crt;
  begin;
   clrscr;
   writeln('South American Airlines':65);
+  writeln;
+  writeln('Mainline Passenger:');
+  writeln;
+  writeln('LAN Airlines');
+  writeln('Avianca');
+  writeln('TAM Airlines');
+  writeln('Azul Airlines');
+  writeln('Sky Airlines');
+  writeln('Gol');
+  writeln('Star Peru');
+  writeln('Peruvian Airlines');
  end;
  {End South American Airlines}
 
@@ -109,6 +120,41 @@ uses crt;
  begin;
   clrscr;
   writeln('European Airlines':65);
+  writeln;
+  writeln('General Airlines');
+  writeln;
+  writeln('Lufthansa Group');
+  writeln('Ryanair');
+  writeln('International Airlines Group');
+  writeln('Air France');
+  writeln('KLM');
+  writeln('easyJet');
+  writeln('Turkish Airlines');
+  writeln('Aeroflot Group');
+  writeln('Norwegian Air Shuttle ASA');
+  writeln('SAS Group');
+  writeln('Wizz Air');
+  writeln('Pegasus Airlines');
+  writeln('Alitalia');
+  writeln('TAP Air Portugal');
+  writeln('S7 Group');
+  writeln('Aegean Airlines');
+  writeln('Finnair');
+  writeln('Air Europa');
+  writeln('Jet2');
+  writeln('flybe');
+  writeln('LOT Polish Airlines');
+  writeln('SmartWings Group');
+  writeln('Ural Airlines');
+  writeln('UTair Aviation');
+  writeln('Ukraine International Airlines');
+  writeln('Virgin Atlantic');
+  writeln('Blue Air');
+  writeln('Volotea');
+  writeln('Icelandair Group');
+  writeln('Azur Air');
+  writeln('AirBaltic');
+  writeln('AND MORE!');
  end;
  {Europe Airlines}
 
@@ -117,6 +163,13 @@ uses crt;
  begin;
   clrscr;
   writeln('Asian Airlines':65);
+  writeln;
+  writeln('Mainline Passenger:');
+  writeln;
+  writeln('Hainan Airlines');
+  writeln('Malaysia Airlines');
+  writeln('Thai Airways');
+  writeln('EVA Air');
  end;
  {End Asia Airlines}
 
