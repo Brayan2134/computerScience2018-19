@@ -24,7 +24,9 @@ uses crt;
   begin
    writeln('Welocome to the AIRLINE CATALOG':65);
    writeln;
+   delay(500);
    writeln('In this program, you can explore the different airlines.');
+   delay(500);
    writeln('Let''s begin!');
   end;
  {End intro}
@@ -33,7 +35,9 @@ uses crt;
   procedure menu(var tempMenuSelection: char);
    begin
     writeln;
-    writeln('Please Pick A Region':10);
+    textbackground(green);
+     writeln('Please Pick A Region':10);
+    textbackground(black);
     writeln;
     writeln('[N]orth America.');
     writeln('[S]outh America.');
@@ -52,7 +56,9 @@ uses crt;
      end
     else
      repeat
-      writeln('That''s an incorrect selection, please try again.');
+      textbackground(red);
+       writeln('That''s an incorrect selection, please try again.');
+      textbackground(black);
       write('Please make a selection: ');
       readln(tempMenuSelection);
       tempMenuSelection := upcase(tempMenuSelection);
@@ -65,9 +71,13 @@ uses crt;
  procedure naAirlines(var tempNaAirlines: char);
  begin
   clrscr;
+  delay(400);
   writeln('North American Airlines':65);
   writeln;
-  writeln('Mainline Passenger:');
+  textbackground(green);
+   writeln('Mainline Passenger:');
+  textbackground(black);
+  delay(200);
   writeln;
   writeln('Alaska Airlines');
   writeln('Allegiant Air');
@@ -76,17 +86,24 @@ uses crt;
   writeln('Frontier Airlines');
   writeln('Hawaiian Airlines');
   writeln('JetBlue');
+  delay(200);
   writeln('Southwest Airlines');
   writeln('Spirit Airlines');
   writeln('United Airlines');
   writeln;
-  writeln('Regional Passenger:');
+  textbackground(green);
+   delay(400);
+   writeln('Regional Passenger:');
+  textbackground(black);
   writeln;
   writeln('Envoy Air (subsidiary of American Airlines Group)');
   writeln('Republic Airlines(subsidiary of Republic Airways Holdings)');
   writeln('SkyWest Airlines (subsidiary of SkyWest, Inc.)');
   writeln;
-  writeln('Freight:');
+  textbackground(green);
+   delay(400);
+   writeln('Freight:');
+  textbackground(black);
   writeln;
   writeln('Atlas Air');
   writeln('FedEx Express');
