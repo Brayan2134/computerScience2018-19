@@ -67,6 +67,32 @@ uses crt;
  begin
   clrscr;
   writeln('North American Airlines':65);
+  writeln;
+  writeln('Mainline Passenger:');
+  writeln;
+  writeln('Alaska Airlines');
+  writeln('Allegiant Air');
+  writeln('American Airlines');
+  writeln('Delta Air Lines');
+  writeln('Frontier Airlines');
+  writeln('Hawaiian Airlines');
+  writeln('JetBlue');
+  writeln('Southwest Airlines');
+  writeln('Spirit Airlines');
+  writeln('United Airlines');
+  writeln;
+  writeln('Regional Passenger:');
+  writeln;
+  writeln('Envoy Air (subsidiary of American Airlines Group)');
+  writeln('Republic Airlines(subsidiary of Republic Airways Holdings)');
+  writeln('SkyWest Airlines (subsidiary of SkyWest, Inc.)');
+  writeln;
+  writeln('Freight:');
+  writeln;
+  writeln('Atlas Air');
+  writeln('FedEx Express');
+  writeln('Polar Air Cargo');
+  writeln('UPS Airlines');
  end;
  {End North American Airlines}
 
