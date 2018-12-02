@@ -170,6 +170,12 @@ uses crt;
   writeln('Malaysia Airlines');
   writeln('Thai Airways');
   writeln('EVA Air');
+  writeln('Asiana Airlines');
+  writeln('Garuda Indonesia');
+  writeln('ANA');
+  writeln('Sinapore Airlines');
+  writeln('Cathay Pacific Airways');
+  writeln('AND MORE!');
  end;
  {End Asia Airlines}
 
