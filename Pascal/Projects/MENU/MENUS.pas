@@ -299,7 +299,7 @@ begin {main}
        'A': asiaAirlines(menuSelection); // Asian Airlines Point
        'F': afAirlines(menuSelection); // African Airlines Point
       end; // ExitPoint
-     until(menuSelection = 'N') or (menuSelection = 'Q')// Once User Types N After Loop, then Redirect to Outro
+     until(menuSelection = 'N') or (menuSelection = 'Q')// Once User Types N/Q After Loop, then Redirect to Outro
      else
       outro; // Outro
    end; // End Redirect To Desired Section
