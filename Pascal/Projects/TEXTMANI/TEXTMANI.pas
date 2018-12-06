@@ -1,9 +1,9 @@
 {
  NAME: Brayan Quevedo Ramos
  CLASS: Comp Sci 1
- DATE:
+ DATE: 12/6/18
 
- PURPOSE:
+ PURPOSE: Write a program that will alter text.
 }
 
 program programname;
@@ -33,6 +33,20 @@ uses crt;
  {End getInt - Make sure user types an Integer}
 
 {******************************************************************************}
+var {main}
+ main: string;
+
 begin {main}
+
+ {Ask user for string}
+ writeln('Please input a string upto 80 Chars.');
+ readln(main);
+ {End ask user for string}
+
+ //Output the string one letter at a time.
+
+ // End of program
+ writeln;
+ writeln('Press any key to end program.');
  readkey;
 end. {main}
