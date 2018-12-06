@@ -110,12 +110,14 @@ uses crt;
   writeln('Polar Air Cargo');
   writeln('UPS Airlines');
   writeln;
+  textbackground(blue);
   repeat // Ask User To goto Menu/Exit.
    delay(100);
    write('Wish to see more?(y/n): ');
    readln(tempNaAirlines);
    tempNaAirlines := upcase(tempNaAirlines);
   until (tempNaAirlines = 'Y') or (tempNaAirlines = 'N');
+  textbackground(black);
  end;
  {End North American Airlines}
 
