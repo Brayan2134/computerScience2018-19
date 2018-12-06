@@ -6,7 +6,7 @@
  PURPOSE: Write a program that will alter text.
 }
 
-program programname;
+program taxmani;
 
 {Libs}
 uses crt;
@@ -34,18 +34,23 @@ uses crt;
 
 {******************************************************************************}
 var {main}
- main: string;
+ name: string;
+ i: integer;
 
 begin {main}
 
- {Ask user for string}
+ // Ask user for string.
  writeln('Please input a string upto 80 Chars.');
- readln(main);
- {End ask user for string}
+ readln(name);
 
  //Output the string one letter at a time.
+ for i := 1 to 80 do
+ begin
+  writeln(name[i]);
 
- // End of program
+ end;
+
+ // End of program.
  writeln;
  writeln('Press any key to end program.');
  readkey;
