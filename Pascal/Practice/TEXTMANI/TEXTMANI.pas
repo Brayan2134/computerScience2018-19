@@ -11,27 +11,6 @@ program taxmani;
 {Libs}
 uses crt;
 
- {getInt - Make sure user types an Integer}
- Procedure getInt(ask:string; var num:integer);
- var
-  numStr : string;
-  code : integer;
- begin
-  repeat
-   write(ask);
-   readln(numstr);
-   val(numStr, num, code);
-   if code <> 0 then
-   begin
-    writeln('Not an integer ');
-    writeln('Press any key to try again.');
-    readkey;
-    clrscr;
-   end;
-  until (code = 0);
- end;
- {End getInt - Make sure user types an Integer}
-
 {******************************************************************************}
 var {main}
  name: string;
@@ -64,6 +43,7 @@ begin {main}
  }
 
  // Count vowels in a phrase.
+ {
  vowels := 0;
  name := upcase(name);
 
@@ -75,7 +55,19 @@ begin {main}
   end; // End Vowels
  end;
  writeln(name, ' contains ', vowels, ' vowels.');
+ }
 
+ // Alter specific letters.
+ {
+ for i := 1 to 80 do
+ begin
+  if (name[i] = 'S') or (name[i] = 's') then // Test for any s in input
+  begin // Begin change s => $
+   name[i] := '$';
+  end; // End change s => $
+ end;
+ writeln(name);
+ }
 
  // End of program.
  writeln;
