@@ -46,8 +46,9 @@ begin {main}
  //Output the string one letter at a time.
  for i := 1 to 80 do
  begin
-  writeln(name[i]);
-
+  write(name[i]);
+  delay(90);
+  textcolor(random(16));
  end;
 
  // End of program.
