@@ -16,3 +16,28 @@
 
  REMARKS: -none-
 }
+
+program family;
+
+uses
+ crt;
+
+ {Introduction}
+ procedure intro;
+ begin
+  writeln('THE FAMILY YOU NEVER HAD?!!?':65);
+  writeln;
+  writeln('Welcome to the family program!');
+  writeln;
+  writeln('In this progam, you can input or read any data in your family!');
+  writeln;
+  writeln('While deletion of data is not available in this build,');
+  writeln;
+  writeln('It will be coming soon!');
+ end;
+ {End Introduction}
+{******************************************************************************}
+begin
+ intro; // Introduction
+ readkey;
+end.
