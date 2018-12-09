@@ -96,6 +96,13 @@ uses crt;
  {Outro}
  procedure outro; // Entry Via Case
  begin;
+  writeln;
+  delay(200);
+  writeln('********************************************************************');
+  delay(200);
+  writeln('Thank you for using this program.');
+  delay(200);
+  writeln('You may now exit.');
  end;
  {End Outro}
 {******************************************************************************}
@@ -108,7 +115,7 @@ begin
  intro; // Introduction
  menu(userChoice); // Menu & authentication
 
- if (userChoice = 'C') then
+ if (userChoice = 'Q') then // If user wants to quit, redirect to quit
  begin
   case (userChoice) of
    'Q' : outro; // Entrypoint
@@ -116,10 +123,12 @@ begin
  end
  else
   begin
+   // If user chooses anything but quit, redirect to Entrypoint
    case (userChoice) of // Redirect to correct location
     'I' : newMember; // Entrypoint
     'R' : rMembers;  // Entrypoint
   end;
+  outro; // After user is done with procedures above, redirect to exit.
  end;
 
  readkey;
