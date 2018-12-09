@@ -46,28 +46,38 @@ uses crt;
  procedure menu (var tempUserAuth: char);
  begin;
   writeln;
+  delay(200);
   textbackground(green);
-   writeln('Please select an option:');
+   writeln('Menu Options:');
   textbackground(black);
+  delay(200);
   writeln('[I]nput new family member.');
+  delay(200);
   writeln('[R]eview family history.');
+  delay(200);
   writeln('[Q]uit.');
+  textbackground(blue);
+   write('Please select an option: ');
+  textbackground(black);
   readln(tempUserAuth);
   tempUserAuth := upcase(tempUserAuth); // Limit potential errors
-
-  // In Progress (DONT COMPILE)
   if (tempUserAuth = 'I') or (tempUserAuth = 'R') or (tempUserAuth = 'Q') then
-  begin
+  begin // If user types VALID answer than do nothing and move on
   end
   else // If user types invalid response send into loop until they do
   begin
    repeat
     writeln;
-    writeln('Sorry that was not a valid answer, please try again.');
-    writeln('Please select an option:');
+    textbackground(red);
+     writeln('Sorry that was not a valid answer, please try again.');
+    textbackground(black);
+    textbackground(blue);
+     write('Please select an option: ');
+    textbackground(black);
+    readln(tempUserAuth);
     tempUserAuth := upcase(tempUserAuth);
    until (tempUserAuth = 'I') or (tempUserAuth = 'R') or (tempUserAuth = 'Q');
-  end; // End else
+  end; // End loop
  end;
  {End Menu}
 
