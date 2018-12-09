@@ -44,22 +44,47 @@ uses
  {End Introduction}
 
  {Menu}
- procedure menu;
+ procedure menu(var tempUserAuth: char);
  begin
   writeln;
   textbackground(green);
    writeln('Please select an option:');
-  textbackgroud(black);
+  textbackground(black);
   writeln('[I]nput new family member.');
   writeln('[R]eview family history.');
   writeln('[Q]uit.');
+  readln(tempUserAuth);
+  tempUserAuth := upcase(tempUserAuth); // Limit potential errors
+
+  // In Progress (DONT COMPILE)
+  if (tempUserAuth = 'I') or (tempUserAuth = 'R') or (tempUserAuth = 'Q') then
+  begin
+   case (tempUserAuth) of // Redirect to correct location
+   'I': newMember;
+   'R': rMembers;
+   'Q': outro;
+   end; // End case
+  end
+  else // If user types invalid response send into loop until they do
+  begin
+   repeat
+    writeln;
+    writeln('Sorry that was not a valid answer, please try again.');
+    writeln('Please select an option:');
+    tempUserAuth := upcase(tempUserAuth);
+   until (tempUserAuth = 'I') or (tempUserAuth = 'R') or (tempUserAuth = 'Q');
+  end; // End else
+
  end;
  {End Menu}
 {******************************************************************************}
+var
+ userChoice: char;
+
 begin
  textcolor(white); // Sets uniform color for entire program
 
- intro; // Introduction
+ intro(userChoice); // Introduction
 
 
  readkey;
