@@ -74,9 +74,24 @@ uses
     tempUserAuth := upcase(tempUserAuth);
    until (tempUserAuth = 'I') or (tempUserAuth = 'R') or (tempUserAuth = 'Q');
   end; // End else
-
  end;
  {End Menu}
+
+ {New Member}
+ procedure newMember;
+ begin
+ end;
+ {End New Member}
+
+ {Review Members}
+ procedure rMembers;
+ {End Review Member}
+
+ {Outro}
+ procedure outro;
+ begin;
+ end;
+ {End Outro}
 {******************************************************************************}
 var
  userChoice: char;
