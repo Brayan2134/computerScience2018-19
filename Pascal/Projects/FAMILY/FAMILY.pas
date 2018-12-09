@@ -19,8 +19,7 @@
 
 program family;
 
-uses
- crt;
+uses crt;
 
  {Introduction}
  procedure intro;
@@ -44,8 +43,8 @@ uses
  {End Introduction}
 
  {Menu}
- procedure menu(var tempUserAuth: char);
- begin
+ procedure menu (var tempUserAuth: char);
+ begin;
   writeln;
   textbackground(green);
    writeln('Please select an option:');
@@ -59,11 +58,6 @@ uses
   // In Progress (DONT COMPILE)
   if (tempUserAuth = 'I') or (tempUserAuth = 'R') or (tempUserAuth = 'Q') then
   begin
-   case (tempUserAuth) of // Redirect to correct location
-   'I': newMember;
-   'R': rMembers;
-   'Q': outro;
-   end; // End case
   end
   else // If user types invalid response send into loop until they do
   begin
@@ -78,17 +72,19 @@ uses
  {End Menu}
 
  {New Member}
- procedure newMember;
+ procedure newMember; // Entry Via Case
  begin
  end;
  {End New Member}
 
  {Review Members}
- procedure rMembers;
+ procedure rMembers; // Entry Via Case
+ begin
+ end;
  {End Review Member}
 
  {Outro}
- procedure outro;
+ procedure outro; // Entry Via Case
  begin;
  end;
  {End Outro}
@@ -97,10 +93,24 @@ var
  userChoice: char;
 
 begin
+
  textcolor(white); // Sets uniform color for entire program
+ intro; // Introduction
+ menu(userChoice); // Menu & authentication
 
- intro(userChoice); // Introduction
-
+ if (userChoice = 'C') then
+ begin
+  case (userChoice) of
+   'Q' : outro; // Entrypoint
+  end;
+ end
+ else
+  begin
+   case (userChoice) of // Redirect to correct location
+    'I' : newMember; // Entrypoint
+    'R' : rMembers;  // Entrypoint
+  end;
+ end;
 
  readkey;
 end.
