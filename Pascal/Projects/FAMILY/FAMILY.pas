@@ -13,7 +13,35 @@ program family;
 uses
  crt;
 
-begin
+ // Introduction into program
+ procedure intro;
+ begin
+  textbackground(white);
+  textcolor(black);
+   writeln('WHAT''S IN YOUR FAMILY?!?!');
+  textcolor(white);
+  textbackground(black);
+ end;
 
- readkey.
+{******************************************************************************}
+var
+ // Initialize array
+ names_list: array[0..1] of string;
+ // Variables to store names of family members
+ name1: string;
+
+begin
+ // Gather data for array
+ intro; // Introduction into program
+
+ // Sort gathered data from variables and store into array
+ names_list[0] := name1;
+ names_list[1] := 'N';
+
+ // Output the data from array
+ writeln(names_list[0]);
+
+ // Conclusion of program
+
+ readkey;
 end.
