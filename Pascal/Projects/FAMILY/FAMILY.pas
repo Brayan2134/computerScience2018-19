@@ -16,21 +16,32 @@ uses
  // Introduction into program
  procedure intro;
  begin
-  textbackground(white);
-  textcolor(black);
-   writeln('WHAT''S IN YOUR FAMILY?!?!');
-  textcolor(white);
+  delay(300);
+  writeln('WHAT''S IN YOUR FAMILY?!?!':65);
+  writeln;
+  delay(300);
+  writeln('In this program, you can input user data and display it!');
+  writeln;
+  delay(300);
+  writeln('As of right now, only 5 family members are supported.');
+  writeln;
+  textbackground(blue);
+   delay(300);
+   writeln('Press any button to continue.');
   textbackground(black);
  end;
 
 {******************************************************************************}
 var
+
  // Initialize array
  names_list: array[0..1] of string;
+
  // Variables to store names of family members
  name1: string;
 
 begin
+
  // Gather data for array
  intro; // Introduction into program
 
