@@ -35,22 +35,51 @@ uses
 var
 
  // Initialize array
- names_list: array[0..1] of string;
+ names_list: array[0..4] of string;
 
  // Variables to store names of family members
+ name0: string;
  name1: string;
+ name2: string;
+ name3: string;
+ name4: string;
 
 begin
 
  // Gather data for array
  intro; // Introduction into program
+ clrscr; // Clear the screen after user has seen the intro
+
+ // First individual data for array
+ textbackground(green);
+  writeln('Please enter the name of the first individual:');
+ textbackground(black);
+
+ // Second individual data for array
+
+ // Third individual data for array
+
+ // Fourth individual data for array
+
+ // Fifth individual data for array
 
  // Sort gathered data from variables and store into array
- names_list[0] := name1;
- names_list[1] := 'N';
+ names_list[0] := name0;
+ names_list[1] := name1;
+ names_list[2] := name2;
+ names_list[3] := name3;
+ names_list[4] := name4;
 
  // Output the data from array
- writeln(names_list[0]);
+ writeln('The name of the first family member is: ',names_list[0]);
+ writeln;
+ writeln('The name of the second family member is: ',names_list[1]);
+ writeln;
+ writeln('The name of the third family member is: ',names_list[2]);
+ writeln;
+ writeln('The name of the fourth family member is: ',names_list[3]);
+ writeln;
+ writeln('The name of the last family member is: ',names_list[4]);
 
  // Conclusion of program
 
