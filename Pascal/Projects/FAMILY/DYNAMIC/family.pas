@@ -153,6 +153,14 @@ begin
    readln(menuSelection);
    menuSelection := upcase(menuSelection);
   textbackground(black);
+  // Check to see if the user typed a valid responce the first time..
+  if (menuSelection = 'Y') or (menuSelection = 'N') then
+  // ..If they did, nothing happens and they can skip the reAuth code..
+  begin
+  end
+  // .. If they DID NOT, then they HAVE TO goto reAuth code
+  else
+  begin
   repeat
   textbackground(red);
    writeln('Sorry! That was not a valid answer. Please try again.');
@@ -162,6 +170,7 @@ begin
    writeln;
   textbackground(black);
   until (menuSelection = 'Y') or (menuSelection = 'N');
+  end;
 
   // Depending on what the user chose, the var 'goToMenu' changes
   if (menuSelection = 'Y') then // User WANTS to go back to the menu
