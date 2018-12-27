@@ -89,7 +89,7 @@ uses
   end;
 {******************************************************************************}
 var
- employee: array[1..3] of person; // Array to hold data
+ family_member: array[1..3] of person; // Array to hold data
  menuSelection: char; // For Menu
  x : integer; // Variable For (Display Data) Section
 
@@ -102,26 +102,39 @@ begin
  // Menu & auth
  menu(menuSelection);
 
+ // menuSelection is: S, A, or Q
+
+ // Goto Outro if user selected Q as Q is quit
+ if (menuSelection = 'Q') then
+ begin
+  outro;
+ end;
+
+ // Let user input data if they chose A
+ if (menuSelection = 'A') then
+ begin
+ end.
+
  // CHANGE LATER
  {Load Data Into Array}
- employee[1].fname := 'Joe';
- employee[1].lname := 'Smith';
- employee[1].gender := 'M';
+ family_member[1].fname := 'Joe';
+ family_member[1].lname := 'Smith';
+ family_member[1].gender := 'M';
 
- employee[2].fname := 'Will';
- employee[2].lname := 'Smith';
- employee[2].gender := 'M';
+ family_member[2].fname := 'Will';
+ family_member[2].lname := 'Smith';
+ family_member[2].gender := 'M';
 
- employee[3].fname := 'Lucy';
- employee[3].lname := 'Letic';
- employee[3].gender := 'F';
+ family_member[3].fname := 'Lucy';
+ family_member[3].lname := 'Letic';
+ family_member[3].gender := 'F';
  {End Load Data Into Array}
 
  {Display Data}
  for x := 1 to 3 do // Displays all 3 family members
  begin
-  writeln('Name: ', employee[x].fname, ' ', employee[x].lname);
-  writeln('Gender: ', employee[x].gender);
+  writeln('Name: ', family_member[x].fname, ' ', family_member[x].lname);
+  writeln('Gender: ', family_member[x].gender);
   writeln;
  end;
  {End Dsplay Data}
