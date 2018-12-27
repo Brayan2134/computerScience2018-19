@@ -92,12 +92,18 @@ var
  family_member: array[1..3] of person; // Array to hold data
  menuSelection: char; // For Menu
  x : integer; // Variable For (Display Data) Section
+ goToMenu : boolean;
 
 begin
 
+ {Required Sequence}
  textcolor(white); // Sets global text color
-
  intro; // Intro
+ {End Required Sequence}
+
+
+ goToMenu := true; // Let user go into repeat loop
+ repeat // Check at bottom of code for until
 
  // Menu & auth
  menu(menuSelection);
@@ -108,37 +114,67 @@ begin
  if (menuSelection = 'Q') then
  begin
   outro;
+  gotoMenu := false;
  end;
 
- // Let user input data if they chose A
- if (menuSelection = 'A') then
+ // Let user input data if user selected A
+
+ // Show Array data if user selected S
+ if (menuSelection = 'S') then
  begin
- end.
 
- // CHANGE LATER
- {Load Data Into Array}
- family_member[1].fname := 'Joe';
- family_member[1].lname := 'Smith';
- family_member[1].gender := 'M';
+   // CHANGE LATER
+  {Load Data Into Array}
+  family_member[1].fname := 'Joe';
+  family_member[1].lname := 'Smith';
+  family_member[1].gender := 'M';
 
- family_member[2].fname := 'Will';
- family_member[2].lname := 'Smith';
- family_member[2].gender := 'M';
+  family_member[2].fname := 'Will';
+  family_member[2].lname := 'Smith';
+  family_member[2].gender := 'M';
 
- family_member[3].fname := 'Lucy';
- family_member[3].lname := 'Letic';
- family_member[3].gender := 'F';
- {End Load Data Into Array}
+  family_member[3].fname := 'Lucy';
+  family_member[3].lname := 'Letic';
+  family_member[3].gender := 'F';
+  {End Load Data Into Array}
 
- {Display Data}
- for x := 1 to 3 do // Displays all 3 family members
- begin
-  writeln('Name: ', family_member[x].fname, ' ', family_member[x].lname);
-  writeln('Gender: ', family_member[x].gender);
-  writeln;
+  {Display Data}
+  for x := 1 to 3 do // Displays all 3 family members
+  begin
+   writeln('Name: ', family_member[x].fname, ' ', family_member[x].lname);
+   writeln('Gender: ', family_member[x].gender);
+   writeln;
+  end;
+  {End Dsplay Data}
+
+  // Ask user if they wish to go back to menu
+  textbackground(blue);
+   write('Do you wish to go back to the menu?(y/n): ');
+   readln(menuSelection);
+   menuSelection := upcase(menuSelection);
+  textbackground(black);
+  repeat
+  textbackground(red);
+   writeln('Sorry! That was not a valid answer. Please try again.');
+   write('Please make a selection(y/n): ');
+   readln(menuSelection);
+   menuSelection := upcase(menuSelection);
+   writeln;
+  textbackground(black);
+  until (menuSelection = 'Y') or (menuSelection = 'N');
+
+  // Depending on what the user chose, the var 'goToMenu' changes
+  if (menuSelection = 'Y') then // User WANTS to go back to the menu
+  begin
+   goToMenu := true;
+  end
+  else // The else assumes that the var 'menuSelection' = 'N'
+  begin
+   goToMenu := false;
+  end;
+
  end;
- {End Dsplay Data}
+ until (goToMenu = false);
 
- outro; // Outro
  readkey;
 end.
