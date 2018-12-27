@@ -65,15 +65,26 @@ uses
    textbackground(black);
    readln(tempMenu);
    tempMenu := upcase(tempMenu); // Limit errors
-   repeat
-    writeln;
-    textbackground(red);
-     writeln('Sorry, that''s an invalid answer.');
-    textbackground(black);
-    write('Please make a selection: ');
-    readln(tempMenu);
-    tempMenu := upcase(tempMenu);
+   // Authenticate
+   if (tempMenu = 'S') or (tempMenu = 'A') or (tempMenu = 'Q') then
+   // If user typed valid answer, skip reAuth code
+   begin
+   end
+   // If not valid answer, go to reAuth
+   else
+   begin
+    {reAuth}
+    repeat
+     writeln;
+     textbackground(red);
+      writeln('Sorry, that''s an invalid answer.');
+     textbackground(black);
+     write('Please make a selection: ');
+     readln(tempMenu);
+     tempMenu := upcase(tempMenu);
    until (tempMenu = 'S') or (tempMenu = 'A') or (tempMenu = 'Q');
+   {End reAuth}
+   end;
   end;
 
   // Outro
@@ -161,15 +172,15 @@ begin
   // .. If they DID NOT, then they HAVE TO goto reAuth code
   else
   begin
-  repeat
-  textbackground(red);
-   writeln('Sorry! That was not a valid answer. Please try again.');
-   write('Please make a selection(y/n): ');
-   readln(menuSelection);
-   menuSelection := upcase(menuSelection);
-   writeln;
-  textbackground(black);
-  until (menuSelection = 'Y') or (menuSelection = 'N');
+   repeat
+   textbackground(red);
+    writeln('Sorry! That was not a valid answer. Please try again.');
+    write('Please make a selection(y/n): ');
+    readln(menuSelection);
+    menuSelection := upcase(menuSelection);
+    writeln;
+   textbackground(black);
+   until (menuSelection = 'Y') or (menuSelection = 'N');
   end;
 
   // Depending on what the user chose, the var 'goToMenu' changes
