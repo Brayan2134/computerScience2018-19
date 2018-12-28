@@ -104,12 +104,26 @@ var
  menuSelection: char; // For Menu
  x : integer; // Variable For (Display Data) Section
  goToMenu : boolean;
+ // Data Variables
+ fname1, lname1, fname2, lname2, fname3, lname3: string;
+ gender1, gender2, gender3: char;
 
 begin
 
  {Required Sequence}
  textcolor(white); // Sets global text color
  intro; // Intro
+
+ // Initialize var (for array)
+ fname1 := 'N/A'; // Start firstname var
+ fname2 := 'N/A';
+ fname3 := 'N/A';
+ lname1 := 'N/A'; // Start lastname var
+ lname2 := 'N/A';
+ lname3 := 'N/A';
+ gender1 := 'N'; // Start gender var
+ gender2 := 'N';
+ gender3 := 'N';
  {End Required Sequence}
 
 
@@ -129,6 +143,9 @@ begin
  end;
 
  // Let user input data if user selected A
+ if (menuSelection = 'A') then
+ begin
+ end;
 
  // Show Array data if user selected S
  if (menuSelection = 'S') then
@@ -136,17 +153,17 @@ begin
 
    // CHANGE LATER
   {Load Data Into Array}
-  family_member[1].fname := 'Joe';
-  family_member[1].lname := 'Smith';
-  family_member[1].gender := 'M';
+  family_member[1].fname := fname1;
+  family_member[1].lname := lname1;
+  family_member[1].gender := gender1;
 
-  family_member[2].fname := 'Will';
-  family_member[2].lname := 'Smith';
-  family_member[2].gender := 'M';
+  family_member[2].fname := fname2;
+  family_member[2].lname := lname2;
+  family_member[2].gender := gender2;
 
-  family_member[3].fname := 'Lucy';
-  family_member[3].lname := 'Letic';
-  family_member[3].gender := 'F';
+  family_member[3].fname := fname3;
+  family_member[3].lname := lname3;
+  family_member[3].gender := gender3;
   {End Load Data Into Array}
 
   {Display Data}
