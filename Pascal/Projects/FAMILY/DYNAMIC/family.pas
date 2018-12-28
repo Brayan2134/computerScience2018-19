@@ -45,12 +45,14 @@ uses
     delay(400);
     writeln('Press any button to continue');
    textbackground(black);
+   readkey;
   end;
 
   // Menu & authentication
   procedure menu(var tempMenu: char);
   begin
    clrscr;
+   writeln;
    textbackground(green);
     delay(300);
     writeln('MENU:');
@@ -61,7 +63,7 @@ uses
    writeln('[Q]uit');
    writeln;
    textbackground(blue);
-    write('Please make a selection: ');
+    write('Please make a selection and press <ENTER>: ');
    textbackground(black);
    readln(tempMenu);
    tempMenu := upcase(tempMenu); // Limit errors
@@ -107,12 +109,15 @@ var
  // Data Variables
  fname1, lname1, fname2, lname2, fname3, lname3: string;
  gender1, gender2, gender3: char;
+ dataName: integer; // Modificication of data..
+ dataDecide: string; // ..See above
 
 begin
 
  {Required Sequence}
  textcolor(white); // Sets global text color
  intro; // Intro
+ dataName := 0;
 
  // Initialize var (for array)
  fname1 := 'N/A'; // Start firstname var
@@ -138,13 +143,36 @@ begin
  // Goto Outro if user selected Q as Q is quit
  if (menuSelection = 'Q') then
  begin
-  outro;
   gotoMenu := false;
  end;
 
  // Let user input data if user selected A
  if (menuSelection = 'A') then
  begin
+  // If user first sees this, then dataName := 0
+
+  {
+   DataName exists as a procaution for the user to
+   only input one family member at a time.
+   As I don't know how to use Dynamic Arrays at the moment,
+   the variable starts at 0 and everytime the user selects the option to
+   enter data, the var dataName points to the correct person to modify/add.
+  }
+  clrscr;
+  writeln;
+  textbackground(green);
+   writeln('What would you like to do:');
+  textbackground(black);
+  writeln('****************************');
+  writeln;
+  writeln('[M]odify data');
+  writeln('[A]dd family members');
+  writeln('[D]elete family members');
+  writeln;
+  textbackground(blue);
+  write('Please select an option: ');
+  textbackground(black);
+  readln(dataDecide);
  end;
 
  // Show Array data if user selected S
@@ -169,6 +197,7 @@ begin
   {Display Data}
   for x := 1 to 3 do // Displays all 3 family members
   begin
+   writeln;
    writeln('Name: ', family_member[x].fname, ' ', family_member[x].lname);
    writeln('Gender: ', family_member[x].gender);
    writeln;
@@ -209,9 +238,9 @@ begin
   begin
    goToMenu := false;
   end;
-
  end;
- until (goToMenu = false);
+ until (goToMenu = false); // The user keeps going to the menu until var is false
 
+ outro; // Outro & end of program
  readkey;
 end.
