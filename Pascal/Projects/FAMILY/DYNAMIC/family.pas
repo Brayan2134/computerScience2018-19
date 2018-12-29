@@ -7,6 +7,9 @@
           where it still has the same basic concept;
           the user can add as many family members as he or she wants into an array,
           and from that read the family members.
+
+ AUTHOR NOTES: Would use dynamic Array, if knew how to
+               use it.
 }
 
 program Family;
@@ -202,6 +205,7 @@ begin
     readln(dataDecide);
     dataDecide := upcase(dataDecide);
    until (dataDecide = 'M') or (dataDecide = 'A') or (dataDecide = 'D');
+   writeln;
   end;
   {End reAuth}
   {End data Sub-menu}
@@ -276,6 +280,7 @@ begin
      readln(modifyFamilyMember);
     end;
     until (modifyFamilyMember = 1) or (modifyFamilyMember = 2) or (modifyFamilyMember = 3);
+    writeln;
    {End ReAuth}
    {End Authenticate}
    {End Menu to select person}
@@ -320,10 +325,83 @@ begin
       readln(subModifyFamilyMember);
       subModifyFamilyMember := upcase(subModifyFamilyMember);
      until (subModifyFamilyMember = 'F') or (subModifyFamilyMember = 'L') or (subModifyFamilyMember = 'G');
+     writeln;
     end;
     {End reAuth}
     {End Authenticate}
    end;
+
+   {Change Person 1 First name}
+   if (subModifyFamilyMember = 'F') then
+   begin
+    writeln;
+    textbackground(green);
+     writeln('Change Family Member 1''s First Name');
+    textbackground(black);
+    writeln;
+    textbackground(blue);
+     write('Please write Family Member 1''s First Name: ');
+    textbackground(black);
+    readln(fname1);
+    writeln;
+    textbackground(yellow);
+    textcolor(black);
+     writeln(fname1,' has been successfully changed!');
+    textcolor(white);
+    writeln;
+    textbackground(blue);
+     writeln('Press any button to go back to main menu.');
+    textbackground(black);
+    readkey;
+   end;
+   {End Change Person 1 First Name}
+
+   {Change Person 1 Last Name}
+   if (subModifyFamilyMember = 'L') then
+   begin
+   writeln;
+    textbackground(green);
+     writeln('Change Family Member 1''s Last Name');
+    textbackground(black);
+    writeln;
+    textbackground(blue);
+     write('Please write Family Member 1''s Last Name: ');
+    textbackground(black);
+    readln(lname1);
+    writeln;
+    textbackground(yellow);
+    textcolor(black);
+     writeln(fname1,' has been successfully changed!');
+    textcolor(white);
+    writeln;
+    textbackground(blue);
+     writeln('Press any button to go back to main menu.');
+    textbackground(black);
+    readkey;
+   end;
+   {End Change Person 1 Last Name}
+
+   {Change Person 1 Gender}
+   writeln;
+   textbackground(green);
+    writeln('Change Family Member 1''s Gender');
+   textbackground(black);
+   writeln;
+   textbackground(blue);
+    write('Please write Family Member 1''s Gender: ');
+   textbackground(black);
+   readln(gender1);
+   writeln;
+   textbackground(yellow);
+   textcolor(black);
+    writeln(fname1,' has been successfully changed!');
+   textcolor(white);
+   writeln;
+   textbackground(blue);
+    writeln('Press any button to go back to main menu.');
+   textbackground(black);
+    readkey;
+   {End Change Person 1 Gender}
    {End Modify Person 1}
 
   end; {End Main}
