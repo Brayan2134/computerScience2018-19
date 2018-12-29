@@ -332,7 +332,7 @@ begin
    end;
 
    {Change Person 1 First name}
-   if (subModifyFamilyMember = 'F') then
+   if (subModifyFamilyMember = 'F') and (modifyFamilyMember = 1) then
    begin
     writeln;
     textbackground(green);
@@ -357,7 +357,7 @@ begin
    {End Change Person 1 First Name}
 
    {Change Person 1 Last Name}
-   if (subModifyFamilyMember = 'L') then
+   if (subModifyFamilyMember = 'L') and (modifyFamilyMember = 1) then
    begin
    writeln;
     textbackground(green);
@@ -382,25 +382,28 @@ begin
    {End Change Person 1 Last Name}
 
    {Change Person 1 Gender}
-   writeln;
-   textbackground(green);
-    writeln('Change Family Member 1''s Gender');
-   textbackground(black);
-   writeln;
-   textbackground(blue);
-    write('Please write Family Member 1''s Gender: ');
-   textbackground(black);
-   readln(gender1);
-   writeln;
-   textbackground(yellow);
-   textcolor(black);
-    writeln(fname1,' has been successfully changed!');
-   textcolor(white);
-   writeln;
-   textbackground(blue);
-    writeln('Press any button to go back to main menu.');
-   textbackground(black);
-    readkey;
+   if (subModifyFamilyMember = 'G') and (modifyFamilyMember = 1)then
+   begin
+    writeln;
+    textbackground(green);
+     writeln('Change Family Member 1''s Gender');
+    textbackground(black);
+    writeln;
+    textbackground(blue);
+     write('Please write Family Member 1''s Gender: ');
+    textbackground(black);
+    readln(gender1);
+    writeln;
+    textbackground(yellow);
+    textcolor(black);
+     writeln(fname1,' has been successfully changed!');
+    textcolor(white);
+    writeln;
+    textbackground(blue);
+     writeln('Press any button to go back to main menu.');
+    textbackground(black);
+     readkey;
+    end;
    {End Change Person 1 Gender}
    {End Modify Person 1********************************************************}
 
@@ -410,7 +413,7 @@ begin
    {Menu for what section of modification}
     writeln;
     textbackground(green);
-     writeln('What section of Family Member 1, would you like to modify?');
+     writeln('What section of Family Member 2, would you like to modify?');
     textbackground(black);
     writeln;
     writeln('[F]irst name');
@@ -448,7 +451,7 @@ begin
     {End Authenticate}
 
     {Change Person 2 First name}
-   if (subModifyFamilyMember = 'F') then
+   if (subModifyFamilyMember = 'F') and (modifyFamilyMember = 2) then
    begin
     writeln;
     textbackground(green);
@@ -473,7 +476,7 @@ begin
    {End Change Person 2 First Name}
 
    {Change Person 2 Last Name}
-   if (subModifyFamilyMember = 'L') then
+   if (subModifyFamilyMember = 'L') and (modifyFamilyMember = 2) then
    begin
    writeln;
     textbackground(green);
@@ -498,25 +501,28 @@ begin
    {End Change Person 2 Last Name}
 
    {Change Person 2 Gender}
-   writeln;
-   textbackground(green);
-    writeln('Change Family Member 2''s Gender');
-   textbackground(black);
-   writeln;
-   textbackground(blue);
-    write('Please write Family Member 2''s Gender: ');
-   textbackground(black);
-   readln(gender2);
-   writeln;
-   textbackground(yellow);
-   textcolor(black);
-    writeln(fname2,' has been successfully changed!');
-   textcolor(white);
-   writeln;
-   textbackground(blue);
-    writeln('Press any button to go back to main menu.');
-   textbackground(black);
-    readkey;
+   if (subModifyFamilyMember = 'G') and (modifyFamilyMember = 2) then
+   begin
+    writeln;
+    textbackground(green);
+     writeln('Change Family Member 2''s Gender');
+    textbackground(black);
+    writeln;
+    textbackground(blue);
+     write('Please write Family Member 2''s Gender: ');
+    textbackground(black);
+    readln(gender2);
+    writeln;
+    textbackground(yellow);
+    textcolor(black);
+     writeln(fname2,' has been successfully changed!');
+    textcolor(white);
+    writeln;
+    textbackground(blue);
+     writeln('Press any button to go back to main menu.');
+    textbackground(black);
+     readkey;
+    end;
    {End Change Person 2 Gender}
    end;
    {End Modify Person 2********************************************************}
@@ -568,7 +574,7 @@ begin
    end;
 
    {Change Person 3 First name}
-   if (subModifyFamilyMember = 'F') then
+   if (subModifyFamilyMember = 'F') and (modifyFamilyMember = 3) then
    begin
     writeln;
     textbackground(green);
@@ -593,7 +599,7 @@ begin
    {End Change Person 3 First Name}
 
    {Change Person 3 Last Name}
-   if (subModifyFamilyMember = 'L') then
+   if (subModifyFamilyMember = 'L') and (modifyFamilyMember = 3) then
    begin
    writeln;
     textbackground(green);
@@ -618,25 +624,28 @@ begin
    {End Change Person 3 Last Name}
 
    {Change Person 3 Gender}
-   writeln;
-   textbackground(green);
-    writeln('Change Family Member 3''s Gender');
-   textbackground(black);
-   writeln;
-   textbackground(blue);
-    write('Please write Family Member 3''s Gender: ');
-   textbackground(black);
-   readln(gender1);
-   writeln;
-   textbackground(yellow);
-   textcolor(black);
-    writeln(fname1,' has been successfully changed!');
-   textcolor(white);
-   writeln;
-   textbackground(blue);
-    writeln('Press any button to go back to main menu.');
-   textbackground(black);
-    readkey;
+   if (subModifyFamilyMember = 'G') and (modifyFamilyMember = 3) then
+   begin
+    writeln;
+    textbackground(green);
+     writeln('Change Family Member 3''s Gender');
+    textbackground(black);
+    writeln;
+    textbackground(blue);
+     write('Please write Family Member 3''s Gender: ');
+    textbackground(black);
+    readln(gender1);
+    writeln;
+    textbackground(yellow);
+    textcolor(black);
+     writeln(fname1,' has been successfully changed!');
+    textcolor(white);
+    writeln;
+    textbackground(blue);
+     writeln('Press any button to go back to main menu.');
+    textbackground(black);
+     readkey;
+    end;
    {End Change Person 3 Gender}
    {End Modify Person 3********************************************************}
 
