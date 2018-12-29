@@ -118,6 +118,8 @@ var
  dataDecide: string; // Select what user wants to do with data
  modifyFamilyMember: integer; // Select what family member to choose
  subModifyFamilyMember: char; // Select what part of family member they want to change
+ confirmDeleteFamilyMember: char; // User authenticates if they want to delete a family members data
+ deleteFamilyMember: integer; // Selects which family member to delete
 
  //Display Data
  x : integer; // Variable to loop sequence to display data
@@ -648,12 +650,113 @@ begin
     end;
    {End Change Person 3 Gender}
    {End Modify Person 3********************************************************}
-
   end; {End Main}
   {End modify data method}
 
   {Add data method}
   {End add data method}
+
+  {Delete data method}
+  if (dataDecide = 'D') then
+  begin
+   {Menu & Auth}
+   clrscr;
+   writeln;
+   textbackground(red);
+    writeln('DELETE A FAMILY MEMBER''S DATA.');
+   textbackground(black);
+   writeln;
+   textbackground(red);
+    writeln('BY DECIDING TO CONTINUE WITH THIS, YOU''RE GOING TO DELETE ALL DATA');
+   textbackground(black);
+   writeln;
+   textbackground(red);
+   writeln('FOR A SPCIFIC FAMILY MEMBER!');
+   textbackground(black);
+   writeln;
+   textbackground(blue);
+   write('Do you wish to continue?(y/n): ');
+   textbackground(red);
+   textbackground(black);
+   readln(confirmDeleteFamilyMember);
+   confirmDeleteFamilyMember := upcase(confirmDeleteFamilyMember);
+   if (confirmDeleteFamilyMember = 'Y') or (confirmDeleteFamilyMember = 'N') then
+   begin
+   end
+   else
+   begin
+    repeat
+     textbackground(yellow);
+      writeln('Sorry! That''s an invalid answer. Please try again.');
+     textbackground(black);
+     writeln;
+     textbackground(red);
+      writeln('Do you wish to continue?(y/n): ');
+     textbackground(black);
+     readln(confirmDeleteFamilyMember);
+     confirmDeleteFamilyMember := upcase(confirmDeleteFamilyMember);
+     writeln;
+    until (confirmDeleteFamilyMember = 'Y') or (confirmDeleteFamilyMember = 'N');
+   end;
+   {End Menu & Auth}
+
+   // If user answered no, then skips all of code to go to menu.
+
+   {Select which family member to delete}
+   if (confirmDeleteFamilyMember = 'Y') then
+   begin
+    clrscr;
+    writeln;
+    textbackground(red);
+     writeln('PLEASE SELECT WHICH FAMILY MEMBER TO DELETE.');
+    textbackground(black);
+    writeln;
+    writeln('Family member [1]: ', fname1);
+    writeln('Family member [2]: ', fname2);
+    writeln('Family member [3]: ', fname3);
+    textbackground(red);
+     writeln('OR ALL OF THE ABOVE. [9]');
+    textbackground(black);
+    writeln;
+    writeln('Please select an option: ');
+    readln(deleteFamilyMember);
+    {Auth}
+    if (deleteFamilyMember = 1) or (deleteFamilyMember = 2) or (deleteFamilyMember = 3) or (deleteFamilyMember = 9) then
+    begin
+    end
+    else
+    {ReAuth}
+    begin
+     repeat
+      writeln;
+      textbackground(red);
+       writeln('Sorry! That''s an invalid answer. Please try again!');
+       writeln;
+       textbackground(blue);
+        write('Please select a family member to delete: ');
+       textbackground(black);
+       readln(deleteFamilyMember);
+      textbackground(black);
+     until (deleteFamilyMember = 1) or (deleteFamilyMember = 2) or (deleteFamilyMember = 3) or (deleteFamilyMember = 9);
+    end;
+    {End ReAuth}
+    {End auth}
+   end;
+   {End select which family member to delete}
+
+   {Delete Family Member 1}
+   {End Delete family member 1}
+
+   {Delete family member 2}
+   {End delete family member 2}
+
+   {Delete family member 3}
+   {End delete family member 3}
+
+   {Delete all family members}
+   {End delete all family members}
+  end;{Main}
+  {End delete data method}
 
  end; // End Data Min
 
