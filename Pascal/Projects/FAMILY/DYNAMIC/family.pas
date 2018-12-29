@@ -151,13 +151,13 @@ begin
  begin
   // If user first sees this, then dataName := 0
 
-  {
+  {*****************************************************************************
    DataName exists as a procaution for the user to
    only input one family member at a time.
    As I don't know how to use Dynamic Arrays at the moment,
    the variable starts at 0 and everytime the user selects the option to
    enter data, the var dataName points to the correct person to modify/add.
-  }
+  *****************************************************************************}
   {Data Sub-menu}
   clrscr;
   writeln;
@@ -198,6 +198,27 @@ begin
   end;
   {End reAuth}
   {End data Sub-menu}
+
+  {*****************************************************************************
+  Modify, Add Delete are only options that the user can
+  have at the moment.
+  From here, depending on what they chose, they get redirected to what they
+  want to do.
+
+  MODIFY DATA METHOD
+  - User gets to choose what person they want to modify (1..3)
+  - The user chooses what part of the person they want to modify
+   (e.g firstname or lastname)
+  - Once user modified data, they get asked if they want to modify another
+  person.
+  - If not, they return to menu.
+
+  ADD DATA METHOD
+  - Check to see if user can add more people (since limit is 3)
+   - User gets to input data if they can
+    - REPLACE FILLER DATA WITH THE DATA THEY INSERTED
+   - They get error message if they can't
+  *****************************************************************************}
  end;
 
  // Show Array data if user selected S
