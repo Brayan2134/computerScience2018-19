@@ -158,6 +158,7 @@ begin
    the variable starts at 0 and everytime the user selects the option to
    enter data, the var dataName points to the correct person to modify/add.
   }
+  {Data Sub-menu}
   clrscr;
   writeln;
   textbackground(green);
@@ -172,14 +173,37 @@ begin
   textbackground(blue);
   write('Please select an option: ');
   textbackground(black);
+  // Auth
   readln(dataDecide);
+  dataDecide := upcase(dataDecide);
+  if (dataDecide = 'M') or (dataDecide = 'A') or (dataDecide = 'D') then
+  // Don't touch since user chose valid answer
+  begin
+  end
+  {reAuth}
+  else
+  begin
+   repeat
+    writeln;
+    textbackground(red);
+     writeln('Sorry! That''s not a valid answer, please try again.');
+    textbackground(black);
+    writeln;
+    textbackground(blue);
+     writeln('Please make a selection: ');
+    textbackground(black);
+    readln(dataDecide);
+    dataDecide := upcase(dataDecide);
+   until (dataDecide = 'M') or (dataDecide = 'A') or (dataDecide = 'D');
+  end;
+  {End reAuth}
+  {End data Sub-menu}
  end;
 
  // Show Array data if user selected S
  if (menuSelection = 'S') then
  begin
 
-   // CHANGE LATER
   {Load Data Into Array}
   family_member[1].fname := fname1;
   family_member[1].lname := lname1;
