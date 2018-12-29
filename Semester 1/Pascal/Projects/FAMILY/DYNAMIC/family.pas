@@ -718,7 +718,7 @@ begin
      writeln('OR ALL OF THE ABOVE. [9]');
     textbackground(black);
     writeln;
-    writeln('Please select an option: ');
+    write('Please select an option: ');
     readln(deleteFamilyMember);
     {Auth}
     if (deleteFamilyMember = 1) or (deleteFamilyMember = 2) or (deleteFamilyMember = 3) or (deleteFamilyMember = 9) then
@@ -745,15 +745,112 @@ begin
    {End select which family member to delete}
 
    {Delete Family Member 1}
+   if (deleteFamilyMember = 1) then
+   begin
+    writeln;
+    textbackground(yellow);
+     writeln('We are deleting family member 1''s data...');
+     writeln;
+     delay(500);
+     writeln('Please wait...');
+    textbackground(black);
+    writeln;
+
+    // Set family member 1's array values to blank or N
+    fname1 := '';
+    lname1 := '';
+    gender1 := 'N';
+
+    textbackground(green);
+     writeln('Family member 1''s data has been deleted.');
+     writeln;
+     writeln('Please press any button to continue.');
+    textbackground(black);
+    readkey;
+   end;
    {End Delete family member 1}
 
    {Delete family member 2}
+   if (deleteFamilyMember = 2) then
+   begin
+    writeln;
+    textbackground(yellow);
+     writeln('We are deleting family member 2''s data...');
+     writeln;
+     delay(500);
+     writeln('Please wait...');
+    textbackground(black);
+    writeln;
+
+    // Set family member 2's array values to blank or N
+    fname2 := '';
+    lname2 := '';
+    gender2 := 'N';
+
+    textbackground(green);
+     writeln('Family member 2''s data has been deleted.');
+     writeln;
+     writeln('Please press any button to continue.');
+    textbackground(black);
+   end;
    {End delete family member 2}
 
    {Delete family member 3}
+   if (deleteFamilyMember = 3) then
+   begin
+    writeln;
+    textbackground(yellow);
+     writeln('We are deleting family member 3''s data...');
+     writeln;
+     delay(500);
+     writeln('Please wait...');
+    textbackground(black);
+    writeln;
+
+    // Set family member 3's array values to blank or N
+    fname3 := '';
+    lname3 := '';
+    gender3 := 'N';
+
+    textbackground(green);
+     writeln('Family member 3''s data has been deleted.');
+     writeln;
+     writeln('Please press any button to continue.');
+    textbackground(black);
+    readkey;
+   end;
    {End delete family member 3}
 
    {Delete all family members}
+   if (deleteFamilyMember = 9) then
+   begin
+    writeln;
+    textbackground(yellow);
+     writeln('We are deleting EVERY family member''s data...');
+     writeln;
+     delay(500);
+     writeln('Please wait...');
+    textbackground(black);
+    writeln;
+
+    // Set family member's array values to blank or N
+    fname1 := '';
+    lname1 := '';
+    gender1 := 'N';
+    fname2 := '';
+    lname2 := '';
+    gender2 := 'N';
+    fname3 := '';
+    lname3 := '';
+    gender3 := 'N';
+
+    textbackground(green);
+     writeln('EVERY FAMILY MEMBER''S DATA HAS BEEN DELETED');
+     writeln;
+     writeln('Please press any button to continue.');
+    textbackground(black);
+    readkey;
+   end;
    {End delete all family members}
   end;{Main}
   {End delete data method}
