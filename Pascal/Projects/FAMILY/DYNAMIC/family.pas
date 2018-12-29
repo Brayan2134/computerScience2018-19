@@ -129,12 +129,12 @@ begin
  intro; // Intro
 
  // Initialize var (for array)
- fname1 := 'N/A'; // Start firstname var
- fname2 := 'N/A';
- fname3 := 'N/A';
- lname1 := 'N/A'; // Start lastname var
- lname2 := 'N/A';
- lname3 := 'N/A';
+ fname1 := ''; // Start firstname var
+ fname2 := '';
+ fname3 := '';
+ lname1 := ''; // Start lastname var
+ lname2 := '';
+ lname3 := '';
  gender1 := 'N'; // Start gender var
  gender2 := 'N';
  gender3 := 'N';
@@ -285,7 +285,7 @@ begin
    {End Authenticate}
    {End Menu to select person}
 
-   {Modify Person 1}
+   {Modify Person 1************************************************************}
    if (modifyFamilyMember = 1) then
    begin
     {Menu for what section of modification}
@@ -402,8 +402,10 @@ begin
    textbackground(black);
     readkey;
    {End Change Person 1 Gender}
-   {End Modify Person 1}
+   {End Modify Person 1********************************************************}
 
+   {Modify Person 2************************************************************}
+   {End Modify Person 2********************************************************}
   end; {End Main}
   {End modify data method}
 
