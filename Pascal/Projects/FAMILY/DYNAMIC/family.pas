@@ -113,7 +113,8 @@ var
  fname1, lname1, fname2, lname2, fname3, lname3: string;
  gender1, gender2, gender3: char;
  dataDecide: string; // Select what user wants to do with data
- modifyFamilyMember: integer;
+ modifyFamilyMember: integer; // Select what family member to choose
+ subModifyFamilyMember: char; // Select what part of family member they want to change
 
  //Display Data
  x : integer; // Variable to loop sequence to display data
@@ -278,8 +279,54 @@ begin
    {End ReAuth}
    {End Authenticate}
    {End Menu to select person}
-  end; {End Main}
 
+   {Modify Person 1}
+   if (modifyFamilyMember = 1) then
+   begin
+    {Menu for what section of modification}
+    writeln;
+    textbackground(green);
+     writeln('What section of Family Member 1, would you like to modify?');
+    textbackground(black);
+    writeln;
+    writeln('[F]irst name');
+    writeln('[L]ast name');
+    writeln('[G]ender');
+    writeln;
+    textbackground(blue);
+     write('Please select an option: ');
+    textbackground(black);
+    readln(subModifyFamilyMember);
+    subModifyFamilyMember := upcase(subModifyFamilyMember);
+
+    // Only options are F/L/G
+
+    {Authenticate}
+    if (subModifyFamilyMember = 'F') or (subModifyFamilyMember = 'L') or (subModifyFamilyMember = 'G') then
+    begin // If user chose valid answer, move onto next block of code
+    end
+    else
+    {ReAuth}
+    begin
+     repeat
+      writeln;
+      textbackground(red);
+       writeln('Sorry! That''s not a valid option.');
+      textbackground(black);
+      writeln;
+      textbackground(blue);
+       writeln('Please select another option: ');
+      textbackground(black);
+      readln(subModifyFamilyMember);
+      subModifyFamilyMember := upcase(subModifyFamilyMember);
+     until (subModifyFamilyMember = 'F') or (subModifyFamilyMember = 'L') or (subModifyFamilyMember = 'G');
+    end;
+    {End reAuth}
+    {End Authenticate}
+   end;
+   {End Modify Person 1}
+
+  end; {End Main}
   {End modify data method}
 
   {Add data method}
