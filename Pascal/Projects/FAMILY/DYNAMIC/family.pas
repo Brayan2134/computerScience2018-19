@@ -102,22 +102,27 @@ uses
   end;
 {******************************************************************************}
 var
- family_member: array[1..3] of person; // Array to hold data
- menuSelection: char; // For Menu
- x : integer; // Variable For (Display Data) Section
+ // Array to hold data
+ family_member: array[1..3] of person;
+
+ // Menu
+ menuSelection: char;
  goToMenu : boolean;
+
  // Data Variables
  fname1, lname1, fname2, lname2, fname3, lname3: string;
  gender1, gender2, gender3: char;
- dataName: integer; // Modificication of data..
- dataDecide: string; // ..See above
+ dataDecide: string; // Select what user wants to do with data
+ modifyFamilyMember: integer;
+
+ //Display Data
+ x : integer; // Variable to loop sequence to display data
 
 begin
 
  {Required Sequence}
  textcolor(white); // Sets global text color
  intro; // Intro
- dataName := 0;
 
  // Initialize var (for array)
  fname1 := 'N/A'; // Start firstname var
@@ -146,10 +151,11 @@ begin
   gotoMenu := false;
  end;
 
+{******************************************************************************}
+
  // Let user input data if user selected A
  if (menuSelection = 'A') then
  begin
-  // If user first sees this, then dataName := 0
 
   {*****************************************************************************
    DataName exists as a procaution for the user to
@@ -218,8 +224,70 @@ begin
    - User gets to input data if they can
     - REPLACE FILLER DATA WITH THE DATA THEY INSERTED
    - They get error message if they can't
+  - Return to menu.
+
+  DELETE DATA METHOD
+  - User chooses which data to delete.
+  - User gets confirmation.
+   - If user chooses no, return to menu
+   - If user selects yes, replace data with 'N/A'
+    - User goes to menu
+
+  General notes
+   - DON'T WORK WITH CASE IF YOU DON'T KNOW HOW TO MIN DATA IN PROCEDURES!!!
+   - goToMenu is your friend to go backto menu.
   *****************************************************************************}
- end;
+
+  {Modify data method}
+  if (dataDecide = 'M') then
+  begin {Main}
+   writeln;
+   writeln;
+   {Menu to select person}
+   textbackground(green);
+    writeln('What would you like to modify?');
+   textbackground(black);
+   writeln;
+   writeln('Family member [1]');
+   writeln('Family member [2]');
+   writeln('Family member [3]');
+   writeln;
+   textbackground(blue);
+    write('Please select an option: ');
+   textbackground(black);
+   readln(modifyFamilyMember);
+   {Authenticate}
+   if (modifyFamilyMember = 1) or (modifyFamilyMember = 2) or (modifyFamilyMember = 3) then
+   begin // User chose valid answer
+   end
+   {ReAuth}
+   else
+   repeat
+    begin
+     writeln;
+     textbackground(red);
+      writeln('Sorry! That''s not a valid answer.');
+     textbackground(white);
+     writeln;
+     textbackground(blue);
+      write('Please select an option: ');
+     textbackground(black);
+     readln(modifyFamilyMember);
+    end;
+    until (modifyFamilyMember = 1) or (modifyFamilyMember = 2) or (modifyFamilyMember = 3);
+   {End ReAuth}
+   {End Authenticate}
+   {End Menu to select person}
+  end; {End Main}
+
+  {End modify data method}
+
+  {Add data method}
+  {End add data method}
+
+ end; // End Data Min
+
+{******************************************************************************}
 
  // Show Array data if user selected S
  if (menuSelection = 'S') then
@@ -247,7 +315,7 @@ begin
    writeln('Gender: ', family_member[x].gender);
    writeln;
   end;
-  {End Dsplay Data}
+  {End Display Data}
 
   // Ask user if they wish to go back to menu
   textbackground(blue);
@@ -285,6 +353,8 @@ begin
   end;
  end;
  until (goToMenu = false); // The user keeps going to the menu until var is false
+
+{******************************************************************************}
 
  outro; // Outro & end of program
  readkey;
