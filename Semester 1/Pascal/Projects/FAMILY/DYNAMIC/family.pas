@@ -875,6 +875,9 @@ begin
     lname2 := '';
     gender2 := 'N';
 
+    // Let the data be added to array again
+    familyData2 := false;
+
     textbackground(green);
      writeln('Family member 2''s data has been deleted.');
      writeln;
@@ -899,6 +902,9 @@ begin
     fname3 := '';
     lname3 := '';
     gender3 := 'N';
+
+    // Let the data be added to array again
+    familyData3 := false;
 
     textbackground(green);
      writeln('Family member 3''s data has been deleted.');
