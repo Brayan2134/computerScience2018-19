@@ -701,6 +701,16 @@ begin
   - The user gets prompted with the information on each individual
   *****************************************************************************}
 
+  // Limit errors
+  {
+  If user deleted one of the dummy family members, the addFamilyMember value,
+  the var goes to 4 and we can't have that.
+  }
+  if (4 >= addFamilyMember) then
+  begin
+   addFamilyMember := 3;
+  end;
+
   // How many family members the user wants to add
   userSelectAddFamilyMember := 0;
 
@@ -738,6 +748,101 @@ begin
   {End auth}
 
   // MAKE SURE TO USE BOOLEANS DEPENDING ON HOW MANY FAMILY MEMBERS THE USER WANTS TO ADD!!!
+
+  {*****************************************************************************
+  STRUCTURE OF THIS SECTION:
+  - Check how many family members the user wants to add
+  - Check to see which familyData booleans are false
+   - If none are false, tell user they can't add anymore
+     family members, and that they'll need to delete one to add one.
+  *****************************************************************************}
+
+  {If the user wants to add 1 family member}
+  if (userSelectAddFamilyMember = 1) and (familyData1 = false) then
+  begin
+
+   // Family member 1 now has data
+   familyData1 := true;
+   addFamilyMember := addFamilyMember - 1;
+   userSelectAddFamilyMember := 0;
+
+   textbackground(green);
+    writeln('Input of information:');
+   textbackground(black);
+   writeln;
+   {Save user input to vars for array}
+   write('Please enter the family member''s first name: ');
+   readln(fname1);
+   writeln;
+   write('Please enter the family member''s last name: ');
+   readln(lname1);
+   writeln;
+   textbackground(yellow);
+    writeln('PLEASE ONLY ENTER THE FIRST LETTER OF THEIR GENDER');
+   textbackground(black);
+   writeln;
+   write('Please enter the family member''s gender: ');
+   readln(gender1);
+   {End save user input to vars for array}
+  end;
+
+  if (userSelectAddFamilyMember = 1) and (familyData2 = false) then
+  begin
+
+   // Family member 2 now has data
+   familyData2 := false;
+   addFamilyMember := addFamilyMember - 1;
+   userSelectAddFamilyMember := 0;
+
+   textbackground(green);
+    writeln('Input of information:');
+   textbackground(black);
+   writeln;
+   {Save user input to vars for array}
+   write('Please enter the family member''s first name: ');
+   readln(fname2);
+   writeln;
+   write('Please enter the family member''s last name: ');
+   readln(lname2);
+   writeln;
+   textbackground(yellow);
+    writeln('PLEASE ONLY ENTER THE FIRST LETTER OF THEIR GENDER');
+   textbackground(black);
+   writeln;
+   write('Please enter the family member''s gender: ');
+   readln(gender2);
+   {End save user input to vars for array}
+  end;
+
+  if (userSelectAddFamilyMember = 1) and (familyData3 = false) then
+  begin
+
+   // Family member 3 now has data
+   familyData3 := true;
+   addFamilyMember := addFamilyMember - 1;
+   userSelectAddFamilyMember := 0;
+
+   textbackground(green);
+    writeln('Input of information:');
+   textbackground(black);
+   writeln;
+   {Save user input to vars for array}
+   write('Please enter the family member''s first name: ');
+   readln(fname3);
+   writeln;
+   write('Please enter the family member''s last name: ');
+   readln(lname3);
+   writeln;
+   textbackground(yellow);
+    writeln('PLEASE ONLY ENTER THE FIRST LETTER OF THEIR GENDER');
+   textbackground(black);
+   writeln;
+   write('Please enter the family member''s gender: ');
+   readln(gender3);
+   {End save user input to vars for array}
+  end;
+
+  {End if user wants to add 1 family member}
   end; {Main}
   {End add data method}
 
@@ -937,6 +1042,11 @@ begin
     fname3 := '';
     lname3 := '';
     gender3 := 'N';
+
+    // Let all family members be added again to the array
+    familyData1 := false;
+    familyData2 := false;
+    familyData3 := false;
 
     textbackground(green);
      writeln('EVERY FAMILY MEMBER''S DATA HAS BEEN DELETED');
