@@ -120,6 +120,8 @@ var
  subModifyFamilyMember: char; // Select what part of family member they want to change
  confirmDeleteFamilyMember: char; // User authenticates if they want to delete a family members data
  deleteFamilyMember: integer; // Selects which family member to delete
+ addFamilyMember: integer; // Decides how many family members the user can add
+ userSelectAddFamilyMember: integer; // Decides how many family members the user WANTS to add
 
  //Display Data
  x : integer; // Variable to loop sequence to display data
@@ -654,6 +656,80 @@ begin
   {End modify data method}
 
   {Add data method}
+  if (dataDecide = 'A') then
+  begin
+
+  // addFamilyMember := 0 if user sees for first time
+
+  {*****************************************************************************
+  ADD FAMILY MEMBERS INTO ARRAY...SORT OF...
+
+  This section of the program is meant to do what modify data does, but on a
+  faster scale. With the modify data section, the user has to choose which
+  family member they want to modify, and then choose which contents of the
+  family member they want to modify, like names or the gender.
+
+  WITH ADD FAMILY MEMBERS it's a lot faster.
+  The user just chooses how many they want to add into the
+  array, aka modifying the current array,
+  and then just imputting the required information.
+
+  STRUCTURE OF THIS SECTION:
+  - There's a counter of how many family members have been added
+   - If counter reaches 3 then user gets a message saying that the max.
+     amount of family members has been reached and that they either
+     need to modify or delete family members.
+   - (SUB-NOTE): They get displayed how many family members they
+                 can add.
+   - (SUB-NOTE): Use booleans to see which family members they
+                 can add. For example. If they added 3, make sure
+                 the boolean for all 3 is true.
+                 If the user then chooses to delete family member 2, aka
+                 reset data, GO INTO SECTION WHERE THE DATA GETS REFORMATTED
+                 AND MAKE THE BOOLEAN FALSE.
+  - The user gets to choose how many they want to add (1-3)
+  - The user gets prompted with the information on each individual
+  *****************************************************************************}
+
+  // They can only add 3
+  addFamilyMember := 3;
+
+  // How many family members the user wants to add
+  userSelectAddFamilyMember := 0;
+
+  writeln;
+  textbackground(green);
+   writeln('How many family members do you wish to add?');
+  textbackground(blue);
+   writeln('You can add, ', addFamilyMember, ' family member''s left.');
+  textbackground(black);
+  writeln;
+  textbackground(blue);
+   writeln('Please make a selection between (1 and 3): ');
+  textbackground(black);
+  readln(userSelectAddFamilyMember);
+  {Auth}
+  if (userSelectAddFamilyMember = 1) or (userSelectAddFamilyMember = 2) or (userSelectAddFamilyMember = 3) then
+  begin
+  end
+  else
+  {reAuth}
+  begin
+   repeat
+    writeln;
+    textbackground(red);
+     writeln('Sorry! You chose an invalid answer. Please try again.');
+    textbackground(black);
+    writeln;
+    textbackground(blue);
+     write('Please make a selection between (1 and 3): ');
+    textbackground(black);
+    readln(userSelectAddFamilyMember);
+   until (userSelectAddFamilyMember = 1) or (userSelectAddFamilyMember = 2) or (userSelectAddFamilyMember = 3);
+  end;
+  {End reAuth}
+  {End auth}
+  end; {Main}
   {End add data method}
 
   {Delete data method}
