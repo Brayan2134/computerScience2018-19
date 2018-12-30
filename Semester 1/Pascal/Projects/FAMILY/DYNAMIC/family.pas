@@ -122,6 +122,7 @@ var
  deleteFamilyMember: integer; // Selects which family member to delete
  addFamilyMember: integer; // Decides how many family members the user can add
  userSelectAddFamilyMember: integer; // Decides how many family members the user WANTS to add
+ familyData1, familyData2, familyData3: boolean; // Which family members have been added
 
  //Display Data
  x : integer; // Variable to loop sequence to display data
@@ -142,6 +143,15 @@ begin
  gender1 := 'N'; // Start gender var
  gender2 := 'N';
  gender3 := 'N';
+
+ // How many family members the user can add
+ addFamilyMember := 3;
+
+ // Booleans to check which family members have been added
+ familyData1 := false;
+ familyData2 := false;
+ familyData3 := false;
+
  {End Required Sequence}
 
 
@@ -691,9 +701,6 @@ begin
   - The user gets prompted with the information on each individual
   *****************************************************************************}
 
-  // They can only add 3
-  addFamilyMember := 3;
-
   // How many family members the user wants to add
   userSelectAddFamilyMember := 0;
 
@@ -729,6 +736,8 @@ begin
   end;
   {End reAuth}
   {End auth}
+
+  // MAKE SURE TO USE BOOLEANS DEPENDING ON HOW MANY FAMILY MEMBERS THE USER WANTS TO ADD!!!
   end; {Main}
   {End add data method}
 
@@ -836,6 +845,9 @@ begin
     fname1 := '';
     lname1 := '';
     gender1 := 'N';
+
+    // Let family member 1 be added to array again
+    familyData1 := false;
 
     textbackground(green);
      writeln('Family member 1''s data has been deleted.');
