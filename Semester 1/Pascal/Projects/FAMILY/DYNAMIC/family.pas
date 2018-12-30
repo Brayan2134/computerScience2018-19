@@ -786,7 +786,7 @@ begin
    {End save user input to vars for array}
   end;
 
-  if (userSelectAddFamilyMember = 1) and (familyData2 = false) then
+  else if (userSelectAddFamilyMember = 1) and (familyData2 = false) then
   begin
 
    // Family member 2 now has data
@@ -814,7 +814,7 @@ begin
    {End save user input to vars for array}
   end;
 
-  if (userSelectAddFamilyMember = 1) and (familyData3 = false) then
+  else if (userSelectAddFamilyMember = 1) and (familyData3 = false) then
   begin
 
    // Family member 3 now has data
@@ -841,8 +841,30 @@ begin
    readln(gender3);
    {End save user input to vars for array}
   end;
-
   {End if user wants to add 1 family member}
+
+  {If user wants to add 2 family members}
+  {End if user wants to add 2 family members}
+
+  {If user wants to add 3 family members}
+  {End if user wants to add 3 family members}
+
+  // MAKE SURE THE LAST END HAS NO SEMICOLON!!!
+  // IF USER CAN'T ADD A FAMILY MEMBER
+  else
+   begin
+    writeln;
+    writeln('Sorry but we couldn''t process that request. Why?');
+    writeln('One of these reasons:');
+    writeln('You added more family members than spots available (3).');
+    writeln;
+    writeln('You can only add, ', addFamilyMember, ' .');
+    writeln('Please consider DELETING family members if you want to add one.');
+    writeln;
+    textbackground(blue);
+     writeln('Press any button to continue.');
+    textbackground(black);
+   end;
   end; {Main}
   {End add data method}
 
