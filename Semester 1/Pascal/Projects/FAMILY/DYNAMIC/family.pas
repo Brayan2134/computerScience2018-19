@@ -11,8 +11,14 @@
  AUTHOR NOTES: Would use dynamic Array, if knew how to
                use it.
 
+               GitHub Notes:
+               *****************************************************************
                FOR DETAILED CHANGES TO THIS PROGRAM CHECK GITHUB REPO
+               LINK: https://github.com/Brayan2134/computerScience2018-19
+               FOLDER: Semester1/Pascal/PROJECTS/FAMILY/DYNAMIC/TURNIN/
                BRANCH: family(Project)-DynamicArray
+               NOTE: The finished project may be pushed into the
+                     master branch at the time of turning in.
 }
 
 program Family;
