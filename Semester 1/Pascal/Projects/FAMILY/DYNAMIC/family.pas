@@ -843,8 +843,13 @@ begin
   end;
   {End if user wants to add 1 family member}
 
+  {****************************************************************************}
+
   {If user wants to add 2 family members}
+  else if (userSelectAddFamilyMember = 2) and
   {End if user wants to add 2 family members}
+
+  {****************************************************************************}
 
   {If user wants to add 3 family members}
   {End if user wants to add 3 family members}
