@@ -10,6 +10,9 @@
 
  AUTHOR NOTES: Would use dynamic Array, if knew how to
                use it.
+
+               FOR DETAILED CHANGES TO THIS PROGRAM CHECK GITHUB REPO
+               BRANCH: family(Project)-DynamicArray
 }
 
 program Family;
@@ -848,14 +851,72 @@ begin
   {If user wants to add 2 family members}
   else if (userSelectAddFamilyMember = 2) and (familyData1 = false) and (familyData2 = false) then
   begin
+
+   // Assume variables now have data
+   familyData1 := true;
+   familyData2 := true;
+   addFamilyMember := addFamilyMember - 2;
+   userSelectAddFamilyMember := 0;
+
+   // Intro
+   textbackground(green);
+    writeln('Input of information:');
+   textbackground(black);
+   writeln;
+
+   {Save user input into var for array}
+
+   // Family Member 1
+
+   // Family Member 2
+   {End save user input into var for array}
   end
 
   else if (userSelectAddFamilyMember = 2) and (familyData1 = false) and (familyData3 = false) then
   begin
+
+  // Assume variables now have data
+  familyData1 := true;
+  familyData3 := true;
+  addFamilyMember := addFamilyMember - 2;
+  userSelectAddFamilyMember := 0;
+
+  // Intro
+  textbackground(green);
+   writeln('Input of information:');
+  textbackground(black);
+  writeln;
+
+  {Save user input into var for array}
+
+  // Family member 1
+
+  // Family member 3
+  {End save user input into var for array}
   end
 
   else if (userSelectAddFamilyMember = 2) and (familyData2 = false) and (familyData3 = false) then
   begin
+
+  // Assume variables now have data
+  familyData2 := true;
+  familyData3 := true;
+  addFamilyMember := addFamilyMember - 2;
+  userSelectAddFamilyMember := 0;
+
+  // Intro
+  textbackground(green);
+   writeln('Input of information:');
+  textbackground(black);
+  writeln;
+
+  {Save user input into var for array}
+
+  // Family member 2
+
+  //Family member 3
+
+  {End save user input into var for array}
   end
   {End if user wants to add 2 family members}
 
@@ -864,6 +925,13 @@ begin
   {If user wants to add 3 family members}
   else if (userSelectAddFamilyMember = 3) and (familyData1 = false) and (familyData2 = false) and (familyData3 = false) then
   begin
+
+   // Assume that family members now have data
+   familyData1 := true;
+   familyData2 := true;
+   familyData3 := true;
+   addFamilyMember := addFamilyMember - 2;
+   userSelectAddFamilyMember := 0;
   end
   {End if user wants to add 3 family members}
 
