@@ -784,7 +784,7 @@ begin
    write('Please enter the family member''s gender: ');
    readln(gender1);
    {End save user input to vars for array}
-  end;
+  end
 
   else if (userSelectAddFamilyMember = 1) and (familyData2 = false) then
   begin
@@ -812,7 +812,7 @@ begin
    write('Please enter the family member''s gender: ');
    readln(gender2);
    {End save user input to vars for array}
-  end;
+  end
 
   else if (userSelectAddFamilyMember = 1) and (familyData3 = false) then
   begin
@@ -840,18 +840,31 @@ begin
    write('Please enter the family member''s gender: ');
    readln(gender3);
    {End save user input to vars for array}
-  end;
+  end
   {End if user wants to add 1 family member}
 
   {****************************************************************************}
 
   {If user wants to add 2 family members}
-  else if (userSelectAddFamilyMember = 2) and
+  else if (userSelectAddFamilyMember = 2) and (familyData1 = false) and (familyData2 = false) then
+  begin
+  end
+
+  else if (userSelectAddFamilyMember = 2) and (familyData1 = false) and (familyData3 = false) then
+  begin
+  end
+
+  else if (userSelectAddFamilyMember = 2) and (familyData2 = false) and (familyData3 = false) then
+  begin
+  end
   {End if user wants to add 2 family members}
 
   {****************************************************************************}
 
   {If user wants to add 3 family members}
+  else if (userSelectAddFamilyMember = 3) and (familyData1 = false) and (familyData2 = false) and (familyData3 = false) then
+  begin
+  end
   {End if user wants to add 3 family members}
 
   // MAKE SURE THE LAST END HAS NO SEMICOLON!!!
