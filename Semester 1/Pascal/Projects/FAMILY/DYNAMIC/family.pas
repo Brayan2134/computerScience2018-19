@@ -873,8 +873,31 @@ begin
    {Save user input into var for array}
 
    // Family Member 1
+   textbackground(blue);
+    writeln('Family Member 1:');
+   textbackground(black);
+   writeln;
+   write('Please enter the first family member''s first name: ');
+   readln(fname1);
+   write('Please enter the first family member''s last name: ');
+   readln(lname1);
+   write('Please enter the first family member''s gender (1 letter please): ');
+   readln(gender1);
+   gender1 := upcase(gender1);
+   writeln;
 
    // Family Member 2
+   textbackground(blue);
+    writeln('Family Member 2:');
+   textbackground(black);
+   writeln;
+   write('Please enter the second family member''s first name: ');
+   readln(fname1);
+   write('Please enter the second family memeber''s last name: ');
+   readln(lname1);
+   write('Please enter the second family member''s gender (1 letter please): ');
+   readln(gender2);
+   gender2 := upcase(gender2);
    {End save user input into var for array}
   end
 
@@ -896,8 +919,31 @@ begin
   {Save user input into var for array}
 
   // Family member 1
+  textbackground(blue);
+    writeln('Family Member 1:');
+   textbackground(black);
+   writeln;
+   write('Please enter the first family member''s first name: ');
+   readln(fname1);
+   write('Please enter the first family member''s last name: ');
+   readln(lname1);
+   write('Please enter the first family member''s gender (1 letter please): ');
+   readln(gender1);
+   gender1 := upcase(gender1);
+   writeln;
 
   // Family member 3
+  textbackground(blue);
+    writeln('Family Member 3:');
+   textbackground(black);
+   writeln;
+   write('Please enter the second family member''s first name: ');
+   readln(fname3);
+   write('Please enter the second family memeber''s last name: ');
+   readln(lname3);
+   write('Please enter the second family member''s gender (1 letter please): ');
+   readln(gender3);
+   gender3 := upcase(gender3);
   {End save user input into var for array}
   end
 
@@ -919,8 +965,31 @@ begin
   {Save user input into var for array}
 
   // Family member 2
+    textbackground(blue);
+    writeln('Family Member 2:');
+   textbackground(black);
+   writeln;
+   write('Please enter the first family member''s first name: ');
+   readln(fname2);
+   write('Please enter the first family memeber''s last name: ');
+   readln(lname2);
+   write('Please enter the first family member''s gender (1 letter please): ');
+   readln(gender2);
+   gender2 := upcase(gender2);
+   writeln;
 
   //Family member 3
+  textbackground(blue);
+    writeln('Family Member 3:');
+   textbackground(black);
+   writeln;
+   write('Please enter the second family member''s first name: ');
+   readln(fname3);
+   write('Please enter the second family memeber''s last name: ');
+   readln(lname3);
+   write('Please enter the second family member''s gender (1 letter please): ');
+   readln(gender3);
+   gender3 := upcase(gender3)
 
   {End save user input into var for array}
   end
@@ -936,8 +1005,38 @@ begin
    familyData1 := true;
    familyData2 := true;
    familyData3 := true;
-   addFamilyMember := addFamilyMember - 2;
+   addFamilyMember := addFamilyMember - 3;
    userSelectAddFamilyMember := 0;
+
+   // Family Member 1
+   textbackground(blue);
+    writeln('Family Member 1:');
+   textbackground(black);
+   writeln;
+   write('Please enter the first family member''s first name: ');
+   readln(fname1);
+   write('Please enter the first family member''s last name: ');
+   readln(lname1);
+   write('Please enter the first family member''s gender (1 letter please): ');
+   readln(gender1);
+   gender1 := upcase(gender1);
+   writeln;
+
+   // Family Member 2
+   textbackground(blue);
+    writeln('Family Member 2:');
+   textbackground(black);
+   writeln;
+   write('Please enter the second family member''s first name: ');
+   readln(fname1);
+   write('Please enter the second family memeber''s last name: ');
+   readln(lname1);
+   write('Please enter the second family member''s gender (1 letter please): ');
+   readln(gender2);
+   gender2 := upcase(gender2);
+   writeln;
+
+   // Family Member 3
   end
   {End if user wants to add 3 family members}
 
@@ -1067,6 +1166,7 @@ begin
 
     // Let family member 1 be added to array again
     familyData1 := false;
+    addFamilyMember := addFamilyMember + 1;
 
     textbackground(green);
      writeln('Family member 1''s data has been deleted.');
@@ -1096,6 +1196,7 @@ begin
 
     // Let the data be added to array again
     familyData2 := false;
+    addFamilyMember := addFamilyMember + 1;
 
     textbackground(green);
      writeln('Family member 2''s data has been deleted.');
@@ -1124,6 +1225,7 @@ begin
 
     // Let the data be added to array again
     familyData3 := false;
+    addFamilyMember := addFamilyMember + 1;
 
     textbackground(green);
      writeln('Family member 3''s data has been deleted.');
@@ -1161,6 +1263,7 @@ begin
     familyData1 := false;
     familyData2 := false;
     familyData3 := false;
+    addFamilyMember := addFamilyMember + 3;
 
     textbackground(green);
      writeln('EVERY FAMILY MEMBER''S DATA HAS BEEN DELETED');
