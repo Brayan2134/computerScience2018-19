@@ -39,23 +39,18 @@ uses
    writeln('THE FAMILY TREE':65);
    writeln;
    delay(400);
-   writeln('This is a program where you can add and review family data!');
+   writeln('This is a family progam,');
    writeln;
    delay(400);
-   writeln('The data may not be motiifed at this moment,');
+   writeln('Where you insert upto 3 family members,');
+   writeln;
+   writeln('and you can modify/delete, or do any minipulation,');
    writeln;
    delay(400);
-   writeln('And you do have to add all of the family data at once,');
-   writeln;
-   delay(400);
-   writeln('But other than that, ');
-   writeln;
-   delay(400);
-   writeln('Let''s get started!');
+   writeln('with the family members.');
    writeln;
    textbackground(blue);
-    delay(400);
-    writeln('Press any button to continue');
+    writeln('Now please press any button to begin.');
    textbackground(black);
    readkey;
   end;
@@ -715,7 +710,7 @@ begin
   If user deleted one of the dummy family members, the addFamilyMember value,
   the var goes to 4 and we can't have that.
   }
-  if (4 >= addFamilyMember) then
+  if (addFamilyMember >= 4) then
   begin
    addFamilyMember := 3;
   end;
@@ -731,7 +726,7 @@ begin
   textbackground(black);
   writeln;
   textbackground(blue);
-   writeln('Please make a selection between (1 and 3): ');
+   write('Please make a selection between (1 and 3): ');
   textbackground(black);
   readln(userSelectAddFamilyMember);
   {Auth}
@@ -892,9 +887,9 @@ begin
    textbackground(black);
    writeln;
    write('Please enter the second family member''s first name: ');
-   readln(fname1);
+   readln(fname2);
    write('Please enter the second family memeber''s last name: ');
-   readln(lname1);
+   readln(lname2);
    write('Please enter the second family member''s gender (1 letter please): ');
    readln(gender2);
    gender2 := upcase(gender2);
@@ -1028,15 +1023,26 @@ begin
    textbackground(black);
    writeln;
    write('Please enter the second family member''s first name: ');
-   readln(fname1);
+   readln(fname2);
    write('Please enter the second family memeber''s last name: ');
-   readln(lname1);
+   readln(lname2);
    write('Please enter the second family member''s gender (1 letter please): ');
    readln(gender2);
    gender2 := upcase(gender2);
    writeln;
 
    // Family Member 3
+   textbackground(blue);
+    writeln('Family Member 3:');
+   textbackground(black);
+   writeln;
+   write('Please enter the third family member''s first name: ');
+   readln(fname3);
+   write('Please enter the third family memeber''s last name: ');
+   readln(lname3);
+   write('Please enter the third family member''s gender (1 letter please): ');
+   readln(gender3);
+   gender3 := upcase(gender3);
   end
   {End if user wants to add 3 family members}
 
@@ -1055,6 +1061,7 @@ begin
     textbackground(blue);
      writeln('Press any button to continue.');
     textbackground(black);
+    readkey;
    end;
   end; {Main}
   {End add data method}
