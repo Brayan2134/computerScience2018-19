@@ -1315,6 +1315,16 @@ begin
   end;
   {End Display Data}
 
+  {*****************************************************************************
+  HOW TO DISPLAY DATA A SPCIFIC WAY:
+
+
+  *****************************************************************************}
+
+  {Ask user if they want to display data a spcific way}
+  {End ask user if they want to display data a spcific way}
+
+
   // Ask user if they wish to go back to menu
   textbackground(blue);
    write('Do you wish to go back to the menu?(y/n): ');
