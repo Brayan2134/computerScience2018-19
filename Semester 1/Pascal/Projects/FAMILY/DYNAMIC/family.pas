@@ -19,6 +19,11 @@
                BRANCH: family(Project)-DynamicArray
                NOTE: The finished project may be pushed into the
                      master branch at the time of turning in.
+
+             IMPORTANT NOTES:
+             *******************************************************************
+             MR.RODIN HAS CLEARED ME TO DO FAMILY MEMBERS INSTEAD OF NUMBERS
+             WHEN I WENT TO MEXICO SO MODIFICATIONS HAVE BEEN MADE.
 }
 
 program Family;
@@ -130,6 +135,7 @@ var
 
  //Display Data
  x : integer; // Variable to loop sequence to display data
+ confirmSeeData: char; // Ask user if they want to see data a different way
 
 begin
 
@@ -1326,6 +1332,33 @@ begin
   *****************************************************************************}
 
   {Ask user if they want to display data a spcific way}
+  writeln;
+  textbackground(blue);
+   writeln('Do you want to see the data displayed in a different way?');
+  textbackground(black);
+  writeln;
+  write('Please make a selection(y/n): ');
+  readln(confirmSeeData);
+  confirmSeeData := upcase(confirmSeeData);
+  // Auth
+  if (confirmSeeData = 'Y') or (confirmSeeData = 'N') then
+  begin
+  end
+  // Reauth
+  else
+  begin
+   repeat
+    writeln;
+    textbackground(red);
+     writeln('Sorry, that''s not a valid answer. Please try again.');
+    textbackground(black);
+    writeln;
+    write('Please make a selection: ');
+    readln(confirmSeeData);
+    writeln;
+    confirmSeeData := upcase(confirmSeeData);
+   until (confirmSeeData = 'Y') or (confirmSeeData = 'N');
+  end;
   {End ask user if they want to display data a spcific way}
 
 
