@@ -136,6 +136,7 @@ var
  //Display Data
  x : integer; // Variable to loop sequence to display data
  confirmSeeData: char; // Ask user if they want to see data a different way
+ userChooseDisplayData: char;
 
 begin
 
@@ -1360,6 +1361,38 @@ begin
    until (confirmSeeData = 'Y') or (confirmSeeData = 'N');
   end;
   {End ask user if they want to display data a spcific way}
+
+  {Ask user how they want to display data}
+  // If user does want to see it, display how.
+  if (confirmSeeData = 'Y') then
+  begin
+   clrscr;
+   writeln;
+   textbackground(green);
+    writeln('Please make a selection on how to display data.');
+   textbackground(black);
+   writeln('************************************************');
+   writeln;
+   // Menu
+   writeln('[F]irst name: A-Z');
+   writeln('[L]ast name: A-Z');
+   writeln('F[I]rst name: Z-A');
+   writeln('L[A]st name: Z-A');
+   writeln('[G]ender.');
+   writeln;
+   write('Please make a selection: ');
+   readln(userChooseDisplayData);
+  end
+  // If user does NOT want to see any more, return to menu
+  else
+  begin
+   writeln;
+   textbackground(green);
+   writeln('Press any button to go backto menu.');
+   textbackground(black);
+   readkey;
+  end;
+  {End ask user how they want to display data}
 
 
   // Ask user if they wish to go back to menu
