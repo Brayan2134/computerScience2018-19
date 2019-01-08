@@ -1305,6 +1305,7 @@ begin
   family_member[3].gender := gender3;
   {End Load Data Into Array}
 
+
   {Display Data}
   for x := 1 to 3 do // Displays all 3 family members
   begin
@@ -1317,7 +1318,10 @@ begin
 
   {*****************************************************************************
   HOW TO DISPLAY DATA A SPCIFIC WAY:
-
+   - Then ask the user if they want the data to be displayed in a spcific way.
+   - Can be in A-Z format. or Z-A format.
+   - [FEAT REQ]: if it can be from newest to oldest people.
+   - Gender (m/f/other).
 
   *****************************************************************************}
 
