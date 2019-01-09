@@ -1382,6 +1382,22 @@ begin
    writeln;
    write('Please make a selection: ');
    readln(userChooseDisplayData);
+   userChooseDisplayData := upcase(userChooseDisplayData);
+   if (userChooseDisplayData = 'F') or (userChooseDisplayData = 'L') or (userChooseDisplayData = 'I') or (userChooseDisplayData = 'A') or (userChooseDisplayData = 'G') then
+   begin
+   end
+   else
+   begin
+    repeat
+    writeln;
+    textbackground(red);
+     writeln('Sorry! That''s an inavlid answer.');
+    textbackground(black);
+    writeln;
+    write('Please make a selection: ');
+    readln(userChooseDisplayData);
+    until (userChooseDisplayData = 'F') or (userChooseDisplayData = 'L') or (userChooseDisplayData = 'I') or (userChooseDisplayData = 'A') or (userChooseDisplayData = 'G');
+   end;
   end
   // If user does NOT want to see any more, return to menu
   else
@@ -1394,6 +1410,11 @@ begin
   end;
   {End ask user how they want to display data}
 
+  // User chose option F for firstname A-Z:
+  // User chose option L for lastname A-Z:
+  // User chose option I for firstname Z-A:
+  // User chose option A for lastname Z-A:
+  // User chose option G for gender:
 
   // Ask user if they wish to go back to menu
   textbackground(blue);
