@@ -1472,6 +1472,185 @@ begin
   {End make sure all variables are cap to limit errors}
 
   {End locate what number goes with the letter of the string}
+  // First firstname
+  case (tempFN1) of
+   'A': tempNumF1 := 1;
+   'B': tempNumF1 := 2;
+   'C': tempNumF1 := 3;
+   'D': tempNumF1 := 4;
+   'E': tempNumF1 := 5;
+   'F': tempNumF1 := 6;
+   'G': tempNumF1 := 7;
+   'H': tempNumF1 := 8;
+   'I': tempNumF1 := 9;
+   'J': tempNumF1 := 10;
+   'K': tempNumF1 := 11;
+   'L': tempNumF1 := 12;
+   'M': tempNumF1 := 13;
+   'N': tempNumF1 := 14;
+   'O': tempNumF1 := 15;
+   'P': tempNumF1 := 16;
+   'Q': tempNumF1 := 17;
+   'R': tempNumF1 := 18;
+   'S': tempNumF1 := 19;
+   'T': tempNumF1 := 20;
+   'U': tempNumF1 := 21;
+   'V': tempNumF1 := 22;
+   'W': tempNumF1 := 23;
+   'X': tempNumF1 := 24;
+   'Y': tempNumF1 := 25;
+   'Z': tempNumF1 := 26;
+  end;
+
+  // Second firstname
+  case (tempFN2) of
+   'A': tempNumF2 := 1;
+   'B': tempNumF2 := 2;
+   'C': tempNumF2 := 3;
+   'D': tempNumF2 := 4;
+   'E': tempNumF2 := 5;
+   'F': tempNumF2 := 6;
+   'G': tempNumF2 := 7;
+   'H': tempNumF2 := 8;
+   'I': tempNumF2 := 9;
+   'J': tempNumF2 := 10;
+   'K': tempNumF2 := 11;
+   'L': tempNumF2 := 12;
+   'M': tempNumF2 := 13;
+   'N': tempNumF2 := 14;
+   'O': tempNumF2 := 15;
+   'P': tempNumF2 := 16;
+   'Q': tempNumF2 := 17;
+   'R': tempNumF2 := 18;
+   'S': tempNumF2 := 19;
+   'T': tempNumF2 := 20;
+   'U': tempNumF2 := 21;
+   'V': tempNumF2 := 22;
+   'W': tempNumF2 := 23;
+   'X': tempNumF2 := 24;
+   'Y': tempNumF2 := 25;
+   'Z': tempNumF2 := 26;
+  end;
+
+  // Third firstname
+  case (tempFN3) of
+   'A': tempNumF3 := 1;
+   'B': tempNumF3 := 2;
+   'C': tempNumF3 := 3;
+   'D': tempNumF3 := 4;
+   'E': tempNumF3 := 5;
+   'F': tempNumF3 := 6;
+   'G': tempNumF3 := 7;
+   'H': tempNumF3 := 8;
+   'I': tempNumF3 := 9;
+   'J': tempNumF3 := 10;
+   'K': tempNumF3 := 11;
+   'L': tempNumF3 := 12;
+   'M': tempNumF3 := 13;
+   'N': tempNumF3 := 14;
+   'O': tempNumF3 := 15;
+   'P': tempNumF3 := 16;
+   'Q': tempNumF3 := 17;
+   'R': tempNumF3 := 18;
+   'S': tempNumF3 := 19;
+   'T': tempNumF3 := 20;
+   'U': tempNumF3 := 21;
+   'V': tempNumF3 := 22;
+   'W': tempNumF3 := 23;
+   'X': tempNumF3 := 24;
+   'Y': tempNumF3 := 25;
+   'Z': tempNumF3 := 26;
+  end;
+
+  // First lastname
+  case (tempLN1) of
+   'A': tempNumL1 := 1;
+   'B': tempNumL1 := 2;
+   'C': tempNumL1 := 3;
+   'D': tempNumL1 := 4;
+   'E': tempNumL1 := 5;
+   'F': tempNumL1 := 6;
+   'G': tempNumL1 := 7;
+   'H': tempNumL1 := 8;
+   'I': tempNumL1 := 9;
+   'J': tempNumL1 := 10;
+   'K': tempNumL1 := 11;
+   'L': tempNumL1 := 12;
+   'M': tempNumL1 := 13;
+   'N': tempNumL1 := 14;
+   'O': tempNumL1 := 15;
+   'P': tempNumL1 := 16;
+   'Q': tempNumL1 := 17;
+   'R': tempNumL1 := 18;
+   'S': tempNumL1 := 19;
+   'T': tempNumL1 := 20;
+   'U': tempNumL1 := 21;
+   'V': tempNumL1 := 22;
+   'W': tempNumL1 := 23;
+   'X': tempNumL1 := 24;
+   'Y': tempNumL1 := 25;
+   'Z': tempNumL1 := 26;
+  end;
+
+  // Second lastname
+  case (tempLN2) of
+   'A': tempNumL2 := 1;
+   'B': tempNumL2 := 2;
+   'C': tempNumL2 := 3;
+   'D': tempNumL2 := 4;
+   'E': tempNumL2 := 5;
+   'F': tempNumL2 := 6;
+   'G': tempNumL2 := 7;
+   'H': tempNumL2 := 8;
+   'I': tempNumL2 := 9;
+   'J': tempNumL2 := 10;
+   'K': tempNumL2 := 11;
+   'L': tempNumL2 := 12;
+   'M': tempNumL2 := 13;
+   'N': tempNumL2 := 14;
+   'O': tempNumL2 := 15;
+   'P': tempNumL2 := 16;
+   'Q': tempNumL2 := 17;
+   'R': tempNumL2 := 18;
+   'S': tempNumL2 := 19;
+   'T': tempNumL2 := 20;
+   'U': tempNumL2 := 21;
+   'V': tempNumL2 := 22;
+   'W': tempNumL2 := 23;
+   'X': tempNumL2 := 24;
+   'Y': tempNumL2 := 25;
+   'Z': tempNumL2 := 26;
+  end;
+
+  // Third lastname
+  case (tempLN3) of
+   'A': tempNumF2 := 1;
+   'B': tempNumL3 := 2;
+   'C': tempNumL3 := 3;
+   'D': tempNumL3 := 4;
+   'E': tempNumL3 := 5;
+   'F': tempNumL3 := 6;
+   'G': tempNumL3 := 7;
+   'H': tempNumL3 := 8;
+   'I': tempNumL3 := 9;
+   'J': tempNumL3 := 10;
+   'K': tempNumL3 := 11;
+   'L': tempNumL3 := 12;
+   'M': tempNumL3 := 13;
+   'N': tempNumL3 := 14;
+   'O': tempNumL3 := 15;
+   'P': tempNumL3 := 16;
+   'Q': tempNumL3 := 17;
+   'R': tempNumL3 := 18;
+   'S': tempNumL3 := 19;
+   'T': tempNumL3 := 20;
+   'U': tempNumL3 := 21;
+   'V': tempNumL3 := 22;
+   'W': tempNumL3 := 23;
+   'X': tempNumL3 := 24;
+   'Y': tempNumL3 := 25;
+   'Z': tempNumL3 := 26;
+  end;
   {End load all strings from array to local var}
 
   // User chose option F for firstname A-Z:
