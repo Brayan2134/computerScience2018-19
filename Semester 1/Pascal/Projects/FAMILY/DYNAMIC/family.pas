@@ -133,11 +133,24 @@ var
  userSelectAddFamilyMember: integer; // Decides how many family members the user WANTS to add
  familyData1, familyData2, familyData3: boolean; // Which family members have been added
 
- //Display Data
+ // Display Data
  x : integer; // Variable to loop sequence to display data
  confirmSeeData: char; // Ask user if they want to see data a different way
  userChooseDisplayData: char; // Ask user how they want to display data
 
+ // Sorting Data
+ tempFN1: char; // Saves 1st letter of string (firstname)
+ tempFN2: char; // ..
+ tempFN3: char; // ..
+ tempLN1: char; // Saves 1st letter of string (lastname)
+ tempLN2: char; // ..
+ tempLN3: char; // ..
+ tempNumF1: integer; // Saves what letter goes with what number (firstname)
+ tempNumF2: integer; // ..
+ tempNumF3: integer; // ..
+ tempNumL1: integer; // Saves what letter goes with what number (lastname)
+ tempNumL2: integer; // ..
+ tempNumL3: integer; // ..
 begin
 
  {Required Sequence}
@@ -1433,6 +1446,33 @@ begin
   - If any gender variables are left, then make a section called 'Other'
   - Display the remaining genders.
   *****************************************************************************}
+
+  {Load all strings from array to local var}
+  // Load all firstnames
+  tempFN1 := fname1[1];
+  tempFN2 := fname2[1];
+  tempFN3 := fname3[1];
+
+  // Load all lastnames
+  tempLN1 := lname1[1];
+  tempLN2 := lname2[1];
+  tempLN3 := lname3[1];
+
+  {Locate what number goes with the letter of the string}
+  {Make sure all variables are cap to limit errors}
+  // All firstnames
+  tempFN1 := upcase(tempFN1);
+  tempFN2 := upcase(tempFN2);
+  tempFN3 := upcase(tempFN3);
+
+  // All lastnames
+  tempLN1 := upcase(tempLN1);
+  tempLN2 := upcase(tempLN2);
+  tempLN3 := upcase(tempLN3);
+  {End make sure all variables are cap to limit errors}
+
+  {End locate what number goes with the letter of the string}
+  {End load all strings from array to local var}
 
   // User chose option F for firstname A-Z:
   // User chose option L for lastname A-Z:
