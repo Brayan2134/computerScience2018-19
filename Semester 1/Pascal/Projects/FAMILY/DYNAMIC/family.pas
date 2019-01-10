@@ -1796,9 +1796,49 @@ begin
   end;
 
   // User chose option I for firstname Z-A (firstname):
+  if (userChooseDisplayData = 'I') then
+  begin
+   writeln;
+   textbackground(yellow);
+    delay(700);
+    writeln('Please hold on, we''re crunching the numbers...');
+   textbackground(black);
+   writeln;
+   textbackground(green);
+    writeln('Family members sorted from firstname (Z-A):');
+   textbackground(black);
+   writeln;
+  end;
+
   // User chose option A for lastname Z-A (lastname):
+  if (userChooseDisplayData = 'A') then
+  begin
+   writeln;
+   textbackground(yellow);
+    delay(700);
+    writeln('Please hold on, we''re crunching the numbers...');
+   textbackground(black);
+   writeln;
+   textbackground(green);
+    writeln('Family members sorted from lastname (Z-A):');
+   textbackground(black);
+   writeln;
+  end;
 
   // User chose option G for gender:
+  if (userChooseDisplayData = 'G') then
+  begin
+   writeln;
+   textbackground(yellow);
+    delay(700);
+    writeln('Please hold on, we''re crunching the numbers...');
+   textbackground(black);
+   writeln;
+   textbackground(green);
+    writeln('Family members sorted from gender (M/F/Other):');
+   textbackground(black);
+   writeln;
+  end;
 
   // Ask user if they wish to go back to menu
   textbackground(blue);
