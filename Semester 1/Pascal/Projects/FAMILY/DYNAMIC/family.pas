@@ -1654,6 +1654,76 @@ begin
   {End load all strings from array to local var}
 
   // User chose option F for firstname A-Z:
+  if (userChooseDisplayData = 'F') then
+  begin
+   writeln;
+   textbackground(yellow);
+    delay(700);
+    writeln('Please hold on, we''re crunching the numbers...');
+   textbackground(black);
+   writeln;
+   textbackground(green);
+    writeln('Family members sorted from firstname (A-Z):');
+   textbackground(black);
+   writeln;
+
+   {Find smallest to largest number (firstname)}
+   // If first number is smallest
+   if (tempNumF3 > tempNumF1) and (tempNumF2 > tempNumF1) then
+   begin
+    writeln(family_member[1].fname);
+   end;
+
+   // If second number is smallest
+   if (tempNumF3 > tempNumF2) and (tempNumF1 > tempNumF2) then
+   begin
+    writeln(family_member[2].fname);
+   end;
+
+   // If third number is smallest
+   if (tempNumF1 > tempNumF3) and (tempNumF2 > tempNumF3) then
+   begin
+    writeln(family_member[3].fname);
+   end;
+   {End find smallest to largest number (firstname)}
+
+   {Find median}
+   // If first number is median
+   if (tempNumF1 > tempNumF2) and (tempNumF3 > tempNumF1) then
+   begin
+    writeln(family_member[1].fname);
+   end;
+   // If second number is median
+   if (tempNumF2 > tempNumF1) and (tempNumF3 > tempNumF2) then
+   begin
+    writeln(family_member[2].fname);
+   end;
+   // If third number is median
+   if (tempNumF3 > tempNumF1) and (tempNumF2 > tempNumF3) then
+   begin
+    writeln(family_member[3].fname);
+   end;
+   {End find median}
+
+   {Find largest number (firstname)}
+   // If first number is largest
+   if (tempNumF1 > tempNumF2) and (tempNumF1 > tempNumF3) then
+   begin
+    writeln(family_member[1].fname);
+   end;
+   // If second number is largest
+   if (tempNumF2 > tempNumF1) and (tempNumF2 > tempNumF3) then
+   begin
+    writeln(family_member[2].fname);
+   end;
+   // If third number is largest
+   if (tempNumF3 > tempNumF1) and (tempNumF3 > tempNumF2) then
+   begin
+    writeln(family_member[3].fname);
+   end;
+   {End find largest number (firstname)}
+  end;
+
   // User chose option L for lastname A-Z:
   // User chose option I for firstname Z-A:
   // User chose option A for lastname Z-A:
