@@ -152,6 +152,9 @@ var
  tempNumL2: integer; // ..
  tempNumL3: integer; // ..
  displayFamily: integer; // To limit errors when displaying the end of sort.
+ tempGen1: char; // Grabes char to compare to M/F/other.
+ tempGen2: char; // ..
+ tempGen3: char; // ..
 begin
 
  {Required Sequence}
@@ -1829,6 +1832,75 @@ begin
     writeln('Family members sorted from gender (M/F/Other):');
    textbackground(black);
    writeln;
+
+   {Display Gender}
+   textbackground(green);
+    writeln('All [M]ales:');
+   textbackground(black);
+
+   // Upcase all genders and save to var
+   tempGen1 := upcase(gender1);
+   tempGen2 := upcase(gender2);
+   tempGen3 := upcase(gender3);
+
+   {Display Males}
+   if (tempGen1 = 'M') then
+   begin
+    writeln(family_member[1].fname, ' ''s gender is: ', tempGen1);
+   end;
+
+   if (tempGen2 = 'M') then
+   begin
+    writeln(family_member[2].fname, ' ''s gender is: ', tempGen2);
+   end;
+
+   if (tempGen3 = 'M') then
+   begin
+    writeln(family_member[3].fname, ' ''s gender is: ', tempGen3);
+   end;
+   {End Display Males}
+
+   {Display Females}
+   writeln;
+   textbackground(green);
+    writeln('All [F]emales:');
+   textbackground(black);
+
+   if (tempGen1 = 'F') then
+   begin
+    writeln(family_member[1].fname, ' ''s gender is: ', tempGen1);
+   end;
+
+   if (tempGen2 = 'F') then
+   begin
+    writeln(family_member[2].fname, ' ''s gender is: ', tempGen2);
+   end;
+
+   if (tempGen3 = 'F') then
+   begin
+    writeln(family_member[3].fname, ' ''s gender is: ', tempGen3);
+   end;
+   writeln;
+   {End Display Females}
+
+   {Display Others}
+   if (tempGen1 <> 'F') or (tempGen1 <> 'M') then
+   begin
+    writeln(family_member[1].fname, ' ''s gender is: ', tempGen1);
+   end;
+
+   if (tempGen2 <> 'F') or (tempGen2 <> 'M') then
+   begin
+    writeln(family_member[2].fname, ' ''s gender is: ', tempGen2);
+   end;
+
+   if (tempGen3 <> 'F') or (tempGen3 <> 'M') then
+   begin
+    writeln(family_member[3].fname, ' ''s gender is: ', tempGen3);
+   end;
+   writeln;
+   {End display Others}
+   {End display gender}
   end;
 
   // Ask user if they wish to go back to menu
