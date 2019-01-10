@@ -136,7 +136,7 @@ var
  //Display Data
  x : integer; // Variable to loop sequence to display data
  confirmSeeData: char; // Ask user if they want to see data a different way
- userChooseDisplayData: char;
+ userChooseDisplayData: char; // Ask user how they want to display data
 
 begin
 
@@ -1410,10 +1410,35 @@ begin
   end;
   {End ask user how they want to display data}
 
+  {*****************************************************************************
+  HOW THIS SECTION WORKS:
+
+  This algorithm is a little bit unconventional for sorting as it uses integers
+  to sort through data instead of looking and comparing strings.
+
+  FOR EVERYTHING NON GENDER!!!
+  - We grab the first letter of each string and we save it to a variable.
+  - We then make sure to uppercase that letter to avoid erorrs.
+  - With that letter chosen we have a board/table of what letter corresponds to
+  what number. For example, the letter 'A' would be 1 and 'Z' would be 26.
+  - Then we compare the 3 family members and depending on what the user chose
+  as for an option below, we display it in that manner.
+
+  FOR GENDER!!!
+  For gender everything is a lot easier to display.
+  - Check all the gender variables and look for any 'M' or Males.
+  - Display in colorful way, the males if applicable.
+  - Check all the gender variables and look for any 'F' or Females.
+  - Display in colorful way, the woman if applicable.
+  - If any gender variables are left, then make a section called 'Other'
+  - Display the remaining genders.
+  *****************************************************************************}
+
   // User chose option F for firstname A-Z:
   // User chose option L for lastname A-Z:
   // User chose option I for firstname Z-A:
   // User chose option A for lastname Z-A:
+
   // User chose option G for gender:
 
   // Ask user if they wish to go back to menu
