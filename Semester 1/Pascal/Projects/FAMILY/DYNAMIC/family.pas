@@ -1724,9 +1724,79 @@ begin
    {End find largest number (firstname)}
   end;
 
-  // User chose option L for lastname A-Z:
-  // User chose option I for firstname Z-A:
-  // User chose option A for lastname Z-A:
+  // User chose option L for lastname A-Z (lastname):
+  if (userChooseDisplayData = 'L') then
+  begin
+   writeln;
+   textbackground(yellow);
+    delay(700);
+    writeln('Please hold on, we''re crunching the numbers...');
+   textbackground(black);
+   writeln;
+   textbackground(green);
+    writeln('Family members sorted from lastname (A-Z):');
+   textbackground(black);
+   writeln;
+
+   {Find smallest to largest number (lastname)}
+   // If first number is smallest
+   if (tempNumL3 > tempNumF1) and (tempNumL2 > tempNumL1) then
+   begin
+    writeln(family_member[1].lname);
+   end;
+
+   // If second number is smallest
+   if (tempNumL3 > tempNumL2) and (tempNumL1 > tempNumL2) then
+   begin
+    writeln(family_member[2].lname);
+   end;
+
+   // If third number is smallest
+   if (tempNumL1 > tempNumL3) and (tempNumL2 > tempNumL3) then
+   begin
+    writeln(family_member[3].lname);
+   end;
+   {End find smallest to largest number (lastname)}
+
+   {Find median}
+   // If first number is median
+   if (tempNumL1 > tempNumL2) and (tempNumL3 > tempNumL1) then
+   begin
+    writeln(family_member[1].lname);
+   end;
+   // If second number is median
+   if (tempNumL2 > tempNumL1) and (tempNumL3 > tempNumL2) then
+   begin
+    writeln(family_member[2].lname);
+   end;
+   // If third number is median
+   if (tempNumL3 > tempNumL1) and (tempNumL2 > tempNumL3) then
+   begin
+    writeln(family_member[3].lname);
+   end;
+   {End find median}
+
+   {Find largest number (lastname)}
+   // If first number is largest
+   if (tempNumL1 >= tempNumL2) and (tempNumL1 >= tempNumL3) then
+   begin
+    writeln(family_member[1].lname);
+   end;
+   // If second number is largest
+   if (tempNumL2 >= tempNumL1) and (tempNumL2 >= tempNumL3) then
+   begin
+    writeln(family_member[2].lname);
+   end;
+   // If third number is largest
+   if (tempNumL3 >= tempNumL1) and (tempNumL3 >= tempNumL2) then
+   begin
+    writeln(family_member[3].lname);
+   end;
+   {End find largest number (lastname)}
+  end;
+
+  // User chose option I for firstname Z-A (firstname):
+  // User chose option A for lastname Z-A (lastname):
 
   // User chose option G for gender:
 
