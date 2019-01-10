@@ -151,6 +151,7 @@ var
  tempNumL1: integer; // Saves what letter goes with what number (lastname)
  tempNumL2: integer; // ..
  tempNumL3: integer; // ..
+ displayFamily: integer; // To limit errors when displaying the end of sort.
 begin
 
  {Required Sequence}
@@ -1389,14 +1390,12 @@ begin
    // Menu
    writeln('[F]irst name: A-Z');
    writeln('[L]ast name: A-Z');
-   writeln('F[I]rst name: Z-A');
-   writeln('L[A]st name: Z-A');
    writeln('[G]ender.');
    writeln;
    write('Please make a selection: ');
    readln(userChooseDisplayData);
    userChooseDisplayData := upcase(userChooseDisplayData);
-   if (userChooseDisplayData = 'F') or (userChooseDisplayData = 'L') or (userChooseDisplayData = 'I') or (userChooseDisplayData = 'A') or (userChooseDisplayData = 'G') then
+   if (userChooseDisplayData = 'F') or (userChooseDisplayData = 'L') or (userChooseDisplayData = 'G') then
    begin
    end
    else
@@ -1409,7 +1408,7 @@ begin
     writeln;
     write('Please make a selection: ');
     readln(userChooseDisplayData);
-    until (userChooseDisplayData = 'F') or (userChooseDisplayData = 'L') or (userChooseDisplayData = 'I') or (userChooseDisplayData = 'A') or (userChooseDisplayData = 'G');
+    until (userChooseDisplayData = 'F') or (userChooseDisplayData = 'L') or (userChooseDisplayData = 'G');
    end;
   end
   // If user does NOT want to see any more, return to menu
@@ -1667,59 +1666,70 @@ begin
    textbackground(black);
    writeln;
 
+   displayFamily := 3; // Only displays contents below
+
    {Find smallest to largest number (firstname)}
    // If first number is smallest
-   if (tempNumF3 > tempNumF1) and (tempNumF2 > tempNumF1) then
+   if (tempNumF3 > tempNumF1) and (tempNumF2 > tempNumF1) and (displayFamily > 0) then
    begin
     writeln(family_member[1].fname);
+    displayFamily := displayFamily - 1;
    end;
 
    // If second number is smallest
-   if (tempNumF3 > tempNumF2) and (tempNumF1 > tempNumF2) then
+   if (tempNumF3 > tempNumF2) and (tempNumF1 > tempNumF2) and (displayFamily > 0) then
    begin
     writeln(family_member[2].fname);
+    displayFamily := displayFamily - 1;
    end;
 
    // If third number is smallest
-   if (tempNumF1 > tempNumF3) and (tempNumF2 > tempNumF3) then
+   if (tempNumF1 > tempNumF3) and (tempNumF2 > tempNumF3) and (displayFamily > 0) then
    begin
     writeln(family_member[3].fname);
+    displayFamily := displayFamily - 1;
    end;
    {End find smallest to largest number (firstname)}
 
    {Find median}
    // If first number is median
-   if (tempNumF1 > tempNumF2) and (tempNumF3 > tempNumF1) then
+   if (tempNumF1 > tempNumF2) and (tempNumF3 > tempNumF1) and (displayFamily > 0) then
    begin
     writeln(family_member[1].fname);
+    displayFamily := displayFamily - 1;
    end;
    // If second number is median
-   if (tempNumF2 > tempNumF1) and (tempNumF3 > tempNumF2) then
+   if (tempNumF2 > tempNumF1) and (tempNumF3 > tempNumF2) and (displayFamily > 0) then
    begin
     writeln(family_member[2].fname);
+    displayFamily := displayFamily - 1;
    end;
    // If third number is median
-   if (tempNumF3 > tempNumF1) and (tempNumF2 > tempNumF3) then
+   if (tempNumF3 > tempNumF1) and (tempNumF2 > tempNumF3) and (displayFamily > 0) then
    begin
     writeln(family_member[3].fname);
+    displayFamily := displayFamily - 1;
    end;
    {End find median}
 
    {Find largest number (firstname)}
    // If first number is largest
-   if (tempNumF1 > tempNumF2) and (tempNumF1 > tempNumF3) then
+   if (tempNumF1 > tempNumF2) and (tempNumF1 > tempNumF3) and (displayFamily > 0) then
    begin
     writeln(family_member[1].fname);
+    displayFamily := displayFamily - 1;
    end;
    // If second number is largest
-   if (tempNumF2 > tempNumF1) and (tempNumF2 > tempNumF3) then
+   if (tempNumF2 > tempNumF1) and (tempNumF2 > tempNumF3) and (displayFamily > 0) then
    begin
     writeln(family_member[2].fname);
+    displayFamily := displayFamily - 1;
    end;
    // If third number is largest
-   if (tempNumF3 > tempNumF1) and (tempNumF3 > tempNumF2) then
+   if (tempNumF3 > tempNumF1) and (tempNumF3 > tempNumF2) and (displayFamily > 0) then
    begin
     writeln(family_member[3].fname);
+    displayFamily := displayFamily - 1;
    end;
    {End find largest number (firstname)}
   end;
@@ -1738,91 +1748,72 @@ begin
    textbackground(black);
    writeln;
 
+   displayFamily := 3; // To Display the family members and limit errors
+
    {Find smallest to largest number (lastname)}
    // If first number is smallest
-   if (tempNumL3 > tempNumF1) and (tempNumL2 > tempNumL1) then
+   if (tempNumL3 > tempNumF1) and (tempNumL2 > tempNumL1) and (displayFamily > 0) then
    begin
     writeln(family_member[1].lname);
+    displayFamily := displayFamily - 1;
    end;
 
    // If second number is smallest
-   if (tempNumL3 > tempNumL2) and (tempNumL1 > tempNumL2) then
+   if (tempNumL3 > tempNumL2) and (tempNumL1 > tempNumL2) and (displayFamily > 0) then
    begin
     writeln(family_member[2].lname);
+    displayFamily := displayFamily - 1;
    end;
 
    // If third number is smallest
-   if (tempNumL1 > tempNumL3) and (tempNumL2 > tempNumL3) then
+   if (tempNumL1 > tempNumL3) and (tempNumL2 > tempNumL3) and (displayFamily > 0) then
    begin
     writeln(family_member[3].lname);
+    displayFamily := displayFamily - 1;
    end;
    {End find smallest to largest number (lastname)}
 
    {Find median}
    // If first number is median
-   if (tempNumL1 > tempNumL2) and (tempNumL3 > tempNumL1) then
+   if (tempNumL1 > tempNumL2) and (tempNumL3 > tempNumL1) and (displayFamily > 0) then
    begin
     writeln(family_member[1].lname);
+    displayFamily := displayFamily - 1;
    end;
    // If second number is median
-   if (tempNumL2 > tempNumL1) and (tempNumL3 > tempNumL2) then
+   if (tempNumL2 > tempNumL1) and (tempNumL3 > tempNumL2) and (displayFamily > 0) then
    begin
     writeln(family_member[2].lname);
+    displayFamily := displayFamily - 1;
    end;
    // If third number is median
-   if (tempNumL3 > tempNumL1) and (tempNumL2 > tempNumL3) then
+   if (tempNumL3 > tempNumL1) and (tempNumL2 > tempNumL3) and (displayFamily > 0) then
    begin
     writeln(family_member[3].lname);
+    displayFamily := displayFamily - 1;
    end;
    {End find median}
 
    {Find largest number (lastname)}
    // If first number is largest
-   if (tempNumL1 >= tempNumL2) and (tempNumL1 >= tempNumL3) then
+   if (tempNumL1 >= tempNumL2) and (tempNumL1 >= tempNumL3) and (displayFamily > 0) then
    begin
     writeln(family_member[1].lname);
+    displayFamily := displayFamily - 1;
    end;
    // If second number is largest
-   if (tempNumL2 >= tempNumL1) and (tempNumL2 >= tempNumL3) then
+   if (tempNumL2 >= tempNumL1) and (tempNumL2 >= tempNumL3) and (displayFamily > 0) then
    begin
     writeln(family_member[2].lname);
+    displayFamily := displayFamily - 1;
    end;
    // If third number is largest
-   if (tempNumL3 >= tempNumL1) and (tempNumL3 >= tempNumL2) then
+   if (tempNumL3 >= tempNumL1) and (tempNumL3 >= tempNumL2) and (displayFamily > 0) then
    begin
     writeln(family_member[3].lname);
+    displayFamily := displayFamily - 1;
    end;
    {End find largest number (lastname)}
-  end;
-
-  // User chose option I for firstname Z-A (firstname):
-  if (userChooseDisplayData = 'I') then
-  begin
-   writeln;
-   textbackground(yellow);
-    delay(700);
-    writeln('Please hold on, we''re crunching the numbers...');
-   textbackground(black);
-   writeln;
-   textbackground(green);
-    writeln('Family members sorted from firstname (Z-A):');
-   textbackground(black);
-   writeln;
-  end;
-
-  // User chose option A for lastname Z-A (lastname):
-  if (userChooseDisplayData = 'A') then
-  begin
-   writeln;
-   textbackground(yellow);
-    delay(700);
-    writeln('Please hold on, we''re crunching the numbers...');
-   textbackground(black);
-   writeln;
-   textbackground(green);
-    writeln('Family members sorted from lastname (Z-A):');
-   textbackground(black);
-   writeln;
   end;
 
   // User chose option G for gender:
