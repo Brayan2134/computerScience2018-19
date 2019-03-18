@@ -6,8 +6,8 @@
  * 			- GET 5 NAMES FROM USER (FIRSTNAME) - DONE
  * 			- UPCASE ALL NAMES - DONE
  * 			- FIND LONGEST - DONE
- * 			- Compare (other than length)
- * 			- APPLY WITH 2 OTHER METHODS
+ * 			- Compare (other than length) - Done
+ * 			- APPLY WITH 2 OTHER METHODS - DONE
  * 			- Sort list of names alphabetically - DONE
  * 			
  * 			BEYOND:
@@ -81,7 +81,7 @@ public class Names {
 	
 	
 	// WORKS BUT DISPLAYS EVERY VOWELS
-	void getArrayVowelCoount(){
+	void getArrayVowelCount(){
 		for (int index = 0; index < LIMIT; index++){
 			String str = nameArray[index];
 	        for(int i=0;i <str.length();i++){
@@ -93,18 +93,39 @@ public class Names {
 	            		System.out.println(" The String " + nameArray[index] + " contains " + str.charAt(i));
 	            }
 	        }
+	        System.out.println(""); // Create whitespace
 		}
 	}
 	
+	
+	public String getShort(){
+		int shortest = 0;
+		String shortestString = "";
+		shortest = nameArray[0].length(); // Initl it by saying that the first in sequence is smallest
+		for (int index = 0; index < LIMIT; index++){
+			if (shortest >= nameArray[index].length()){ // If shortest is bigger than array in sequence, update shortest
+				shortest = nameArray[index].length();
+				shortestString = nameArray[index];
+			}
+		}
+		return shortestString;
+	}
 	//********************************************************
 	
 	
 	// Main method
 	public static void main(String[] args) {
+		
+		// Tabbed for readbility
 		Names main = new Names(); // Create new object
-		main.getInput();// Get the names from the user & uppercase
-		System.out.println("Largest String: " + main.getLarge()); // Get longest temping
-		main.sortArray(); // Sort the array (A-Z)
-		main.getArrayVowelCoount(); // Get vowels in Array
+			main.getInput();// Init & get the names from the user & uppercase
+			
+			System.out.println("Largest String: " + main.getLarge()); // Get longest temping
+			
+			main.sortArray(); // Sort the array (A-Z)
+			
+			main.getArrayVowelCount(); // Get vowels in Array
+			
+			System.out.println("The shortest word is: " + main.getShort()); // Get shortest string
 	}
 }

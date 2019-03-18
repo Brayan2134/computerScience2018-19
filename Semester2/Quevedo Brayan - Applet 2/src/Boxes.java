@@ -19,6 +19,7 @@ import java.util.Random;
 
 public class Boxes extends Applet{
 	
+	// Window
 	public void init(){
 		resize(500, 500);
 	}
@@ -30,7 +31,8 @@ public class Boxes extends Applet{
 		
 		int x, y, width, height;
 		
-		Color customBG = new Color(24,24,24);
+		// Background Color
+		Color customBG = new Color(125,125,125);
 		setBackground(customBG);
 		Random generator = new Random();
 		
@@ -45,12 +47,19 @@ public class Boxes extends Applet{
 				page.drawOval(x, y, width, height);
 			}
 			else if (height <= THICKNESS){
-				page.setColor(Color.green);
+				page.setColor(Color.blue);
 				page.fillRect(x, y, width, height);
+				
+				page.setColor(Color.green);
+				page.drawRect(x, 100, width, 250);
 			}
 			else{
 				page.setColor(Color.white);
 				page.drawRect(x, y, width, height);
+				
+				page.setColor(Color.red);
+				String tempString = "Hello my name'S BRAYANBN!";
+				page.drawString(tempString, x, y);
 			}
 		}
 	}
