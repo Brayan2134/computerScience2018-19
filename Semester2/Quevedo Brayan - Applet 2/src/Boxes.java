@@ -45,6 +45,9 @@ public class Boxes extends Applet{
 			if (width <= THICKNESS){
 				page.setColor(Color.red);
 				page.drawOval(x, y, width, height);
+				
+				page.setColor(Color.BLACK);
+				page.drawOval(x + 22, y + 62, width + 55, height - 22);
 			}
 			else if (height <= THICKNESS){
 				page.setColor(Color.blue);
@@ -60,6 +63,9 @@ public class Boxes extends Applet{
 				page.setColor(Color.red);
 				String tempString = "Hello my name'S BRAYANBN!";
 				page.drawString(tempString, x, y);
+				
+				page.setColor(Color.YELLOW);
+				page.drawString("Welcome to CS2!", 50, y - 25);
 			}
 		}
 	}

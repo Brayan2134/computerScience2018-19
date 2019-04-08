@@ -30,7 +30,19 @@ public class Names {
 	
 	//**********************************************************
 	
-	
+	// Introduction
+	public int mainMenu(){
+		int menuSelection = 0;
+		System.out.println("\t Welcome to the name array program! Please select an option below:");
+		System.out.println("[1] Get largest string");
+		System.out.println("[2] Get shortest string");
+		System.out.println("[3] Get vowels in all strings string");
+		System.out.println("[4] Sort array (A-Z)");
+		System.out.print("Please make a selection: ");
+		menuSelection = Keyboard.readInt();
+		
+		return menuSelection;
+	}
 	
 	// Method that will ask user to input the names into the nameArray
 	public void getInput(){
@@ -118,14 +130,36 @@ public class Names {
 		
 		// Tabbed for readbility
 		Names main = new Names(); // Create new object
+		
 			main.getInput();// Init & get the names from the user & uppercase
+			int menuSelection = main.mainMenu(); // Main menu of program
 			
-			System.out.println("Largest String: " + main.getLarge()); // Get longest temping
+			// 1 largest, 2 shortest (string), 3 vowles, 4 sort array
 			
-			main.sortArray(); // Sort the array (A-Z)
+				// Find largest string in Array
+				if (menuSelection == 1){
+					System.out.println("Largest String: " + main.getLarge()); // Get longest temping
+				}
+				
+				// Find shortest string in array
+				else if (menuSelection == 2){
+					System.out.println("The shortest string is: " + main.getShort()); // Get shortest string
+				}
+				
+				// Find vowel count in all strings
+				else if (menuSelection == 3){
+					main.getArrayVowelCount(); // Get vowels in Array
+				}
+				
+				// Sort array (A-Z)
+				else if (menuSelection == 4){
+					main.sortArray(); // Sort the array (A-Z)	
+				}
+				
+				// If user did not select a correct answer, display error
+				else{
+					System.out.println("Sorry, the selection that you made was not valid.");
+				}
 			
-			main.getArrayVowelCount(); // Get vowels in Array
-			
-			System.out.println("The shortest word is: " + main.getShort()); // Get shortest string
 	}
 }
