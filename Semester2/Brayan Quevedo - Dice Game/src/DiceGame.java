@@ -7,7 +7,8 @@
 
 public class DiceGame {
 	public static void main(String[] args) {
-
+		
+		char option;
+		int balance = 0;
 	}
-
 }

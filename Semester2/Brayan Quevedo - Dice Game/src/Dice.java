@@ -5,10 +5,6 @@
  * PURPOSE: Hello World
  */
 
-/**
- * @author 667001
- *
- */
 public class Dice {
 
 }
