@@ -18,6 +18,10 @@ public class Dice {
 		return die1 + die2;
 	}
 	
+	public int rollDice1(){
+		return die1;
+	}
+	
 	public boolean isItSeven(){
 		return sumDice() == 7;
 	}
