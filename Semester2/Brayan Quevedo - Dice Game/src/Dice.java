@@ -4,7 +4,8 @@
  * DATE:  1/29/2019
  * PURPOSE: Hello World
  */
-import java.util.*; 
+
+import java.util.Random;
 public class Dice {
 
 	//CONSTRUCTORS
@@ -19,11 +20,15 @@ public class Dice {
 	}
 	
 	public int rollDice1(){
-		die1 = Math.random();
+		Random rand = new Random(); // Create am object to assign random to
+		die1 = rand.nextInt(21); // Sets random between 0-20
 		return die1;
 	}
 	
 	public int rollDice2(){
+		// REFER TO DOCUMENTATION ROLLDICE1
+		Random rand2 = new Random();
+		die2 = rand2.nextInt(21);
 		return die2;
 	}
 	
