@@ -3,6 +3,16 @@
  * CLASS: Computer Science 2
  * DATE:  4/8/19
  * PURPOSE: Dice Game.
+ * 
+ * STRUCTURE:
+ * 	- INTRO
+ * 	
+ *  - MENU
+ *  	- MENU -> REDIRECT
+ *  		- REDIRECT -> ACTION
+ *  - ACTION -> MENU
+ *  
+ *  - QUIT
  */
 
 import cs1.Keyboard;
@@ -24,6 +34,11 @@ public class DiceGame {
 		System.out.println("");
 		System.out.println("How much would you like to start off with?: ");
 		balance = Keyboard.readInt();
+		
+		// Quick fix if user inserted valid number
+		if (balance <= 0){
+			balance = 5;
+		}
 	}
 	
 	/*Rules for the game*/
@@ -171,7 +186,7 @@ public class DiceGame {
 			System.out.print("Please choose a number for dice one (0-20): ");
 			guessDice1 = Keyboard.readInt();
 			
-			System.out.print("Please choose a number for dice two (0-20): ");
+			System.out.print("Please choose a number for dice two (0-20)Game : ");
 			guessDice2 = Keyboard.readInt();
 		}
 		
