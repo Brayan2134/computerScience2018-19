@@ -12,10 +12,16 @@ public class Calculator extends JFrame{
 	private JMenu file;
 	private JMenu edit;
 	private JMenu help;
+	
 	private JMenuItem close;
+	private JMenuItem howToUse;
+	private JMenuItem feedback;
+
 	private JMenuItem copy;
+	
 	private JMenuItem view;
 	private JMenuItem about;
+	private JMenuItem copyright;
 	
 	private JTextArea display;
 	
@@ -41,6 +47,8 @@ public class Calculator extends JFrame{
 	private JButton multiplication;
 	
 	private double tempFirst = 0.0;
+	
+	private boolean[] operation = new boolean[4];
 	
 	public static void main(String[] args) {
 		// System theme
@@ -69,7 +77,8 @@ public class Calculator extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				setTempFirst(Double.parseDouble(display.getText()));
-				display.append("/");
+				display.setText("0");
+				operation[0] = true;
 				System.out.println("Division Button is dividing by: " + tempFirst);
 			}
 		});
@@ -77,14 +86,44 @@ public class Calculator extends JFrame{
 		
 		multiplication = new JButton("*");
 		multiplication.setBounds(226, 132, 65, 55);
+		multiplication.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setTempFirst(Double.parseDouble(display.getText()));
+				display.setText("0");
+				operation[1] = true;
+				System.out.println("Division Button is multiplying by: " + tempFirst);
+			}
+		});
 		add(multiplication);
 		
 		subtraction = new JButton("-");
 		subtraction.setBounds(226, 194, 65, 55);
+		subtraction.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setTempFirst(Double.parseDouble(display.getText()));
+				display.setText("0");
+				operation[2] = true;
+				System.out.println("Division Button is subtracting by: " + tempFirst);
+			}
+		});
 		add(subtraction);
 		
 		addition = new JButton("+");
 		addition.setBounds(226, 256, 65, 55);
+		addition.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				setTempFirst(Double.parseDouble(display.getText()));
+				display.setText("0");
+				operation[3] = true;
+				System.out.println("Division Button is multiplying by: " + tempFirst);
+			}
+		});
 		add(addition);
 		
 		clear = new JButton("Clear");
@@ -94,12 +133,41 @@ public class Calculator extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				display.setText("0");
+				setTempFirst(0.0);
+				for (int i = 0; i <= 3; i++){
+					operation[i] = false;
+				}
 			}
 		});
 		add(clear);
 		
 		equals = new JButton("=");
 		equals.setBounds(10,318, 137, 55);
+		equals.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (operation[0]) {
+					display.setText(Double.toString(tempFirst / Double.parseDouble(display.getText())));
+				}
+				else if (operation[1]){
+					display.setText(Double.toString(tempFirst * Double.parseDouble(display.getText())));
+				}
+				else if (operation[2]){
+					display.setText(Double.toString(tempFirst - Double.parseDouble(display.getText())));
+				}
+				else if (operation[3]){
+					display.setText(Double.toString(tempFirst + Double.parseDouble(display.getText())));
+				}
+				if(display.getText().endsWith(".0")) {
+					display.setText(display.getText().replace(".0", ""));
+					setTempFirst(0.0);
+					for (int i = 0; i <= 3; i++){
+						operation[i] = false;
+					}		
+				}
+			}
+		});
 		add(equals);
 		
 		zero = new JButton("0");
@@ -328,13 +396,19 @@ public class Calculator extends JFrame{
 	// Menu
 	private void sendMenuBar() {
 		menuBar = new JMenuBar();
-		file = new JMenu(" File ");
+		file = new JMenu(" Main ");
 		edit = new JMenu(" Edit ");
 		help = new JMenu(" Help ");
+		
 		close = new JMenuItem("Close");
+		howToUse = new JMenuItem("How to use");
+		feedback = new JMenuItem("Feedback");
+		
 		copy = new JMenuItem("Copy");
+		
 		view = new JMenuItem("View Help");
 		about = new JMenuItem("About App");
+		copyright = new JMenuItem("Copyright");
 		setJMenuBar(menuBar);
 		menuBar.add(file);
 		menuBar.add(edit);
@@ -348,6 +422,30 @@ public class Calculator extends JFrame{
 				System.out.println("The user has exited the program");
 				System.out.println("THE PROGRAM HAS BEN TERMINATED");
 				System.exit(0);
+			}
+		});
+		
+		howToUse.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"1) Click numbers. 2) Click operator. 3) Click equals button. 4) Press clear to begin again.", "Instructions", JOptionPane.OK_OPTION);
+				System.out.println("The user has clicked the view button");
+			}
+		});
+		
+		feedback.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try{
+
+					String command = "C:\\Program Files\\Internet Explorer\\IEXPLORE.EXE https://github.com/Brayan2134/computerScience2018-19" ;
+
+					Process link = Runtime.getRuntime().exec(command);
+					}
+					catch(Exception ex){
+					System.out.println("cannot execute command. " +ex);
+					}
+				JOptionPane.showMessageDialog(null,"Please send any issues to the git repo: https://github.com/Brayan2134/computerScience2018-19/issues", "Feedback", JOptionPane.OK_OPTION);
 			}
 		});
 		
@@ -374,16 +472,26 @@ public class Calculator extends JFrame{
 		about.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"This is a calculator made for the simple operations in life.", "About", JOptionPane.OK_OPTION);
+			}
+		});
+		
+		copyright.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null,"Made By Brayan Quevedo, 2019", "Copyright", JOptionPane.OK_OPTION);
 			}
 		});
 		
 		file.add(close);
+		file.add(howToUse);
+		file.add(feedback);
 		edit.add(copy);
 		help.add(view);
 		help.add(about);
+		help.add(copyright);
 	}
-
+	
 	// Program settings
 	private void sendUI(Calculator app) {
 		System.out.println("Program settings are starting...");
