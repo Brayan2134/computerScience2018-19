@@ -18,6 +18,8 @@ public class Calculator extends JFrame{
 	private JMenuItem feedback;
 
 	private JMenuItem copy;
+	private JMenuItem clearOperation;
+	private JMenuItem paste;
 	
 	private JMenuItem view;
 	private JMenuItem about;
@@ -46,19 +48,11 @@ public class Calculator extends JFrame{
 	private JButton division;
 	private JButton multiplication;
 	
+	private JButton quitProgram;
+	
 	private double tempFirst = 0.0;
 	
 	private boolean[] operation = new boolean[4];
-	
-	public static void main(String[] args) {
-		// System theme
-		try {
-			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-		}catch(Exception e) {
-			System.out.println("Could not load System look.");
-		}
-		new Calculator(); // Instance
-	}
 	
 	// Build Calc
 	public Calculator() {
@@ -142,7 +136,7 @@ public class Calculator extends JFrame{
 		add(clear);
 		
 		equals = new JButton("=");
-		equals.setBounds(10,318, 137, 55);
+		equals.setBounds(10,318, 65, 55);
 		equals.addActionListener(new ActionListener() {
 
 			@Override
@@ -169,6 +163,17 @@ public class Calculator extends JFrame{
 			}
 		});
 		add(equals);
+		
+		quitProgram = new JButton("Quit");
+		quitProgram.setBounds(82, 318, 65, 55);
+		quitProgram.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		add(quitProgram);
 		
 		zero = new JButton("0");
 		zero.setBounds(10, 256, 65, 55);
@@ -405,6 +410,8 @@ public class Calculator extends JFrame{
 		feedback = new JMenuItem("Feedback");
 		
 		copy = new JMenuItem("Copy");
+		clearOperation = new JMenuItem("Clear Operation");
+		paste = new JMenuItem("Paste");
 		
 		view = new JMenuItem("View Help");
 		about = new JMenuItem("About App");
@@ -438,7 +445,7 @@ public class Calculator extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				try{
 
-					String command = "C:\\Program Files\\Internet Explorer\\IEXPLORE.EXE https://github.com/Brayan2134/computerScience2018-19/issues" ;
+					String command = "C:\\Program Files\\Internet Explorer\\IEXPLORE.EXE https://github.com/Brayan2134/computerScience2018-19" ;
 
 					Process link = Runtime.getRuntime().exec(command);
 					}
@@ -483,10 +490,30 @@ public class Calculator extends JFrame{
 			}
 		});
 		
+		paste.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(null,"SORRY! This is a work in progress...", "We're sorry :(", JOptionPane.OK_OPTION);
+			}
+		});
+		
+		clearOperation.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				display.setText("0");
+				setTempFirst(0.0);
+				for (int i = 0; i <= 3; i++){
+					operation[i] = false;
+				}
+			}
+		});
+		
 		file.add(close);
 		file.add(howToUse);
 		file.add(feedback);
 		edit.add(copy);
+		edit.add(clearOperation);
+		edit.add(paste);
 		help.add(view);
 		help.add(about);
 		help.add(copyright);
