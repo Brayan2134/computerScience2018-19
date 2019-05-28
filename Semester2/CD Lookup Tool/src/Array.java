@@ -6,6 +6,7 @@
  */
 
 import cs1.Keyboard;
+import java.util.Arrays;
 
 public class Array {
 
@@ -16,12 +17,12 @@ public class Array {
 	
 	public String artistName, albumName, songName; // Main vars needed for lookup
 	final static int ARRAYSIZE = 100; // Size of Array
-	
+
 	// WE ARE RUNNING PARALLEL ARRAYS
-	int MAXNUMOFSONGS[] = new int[ARRAYSIZE]; //declaration and instantiation
-	String ARTISTNAME[] = new String[ARRAYSIZE];
-	String ALBUMNAME[] = new String[ARRAYSIZE];
-	String SONGNAME[] = new String[ARRAYSIZE];
+	int[] MAXNUMOFSONGS = new int[ARRAYSIZE]; //declaration and instantiation
+	String[] ARTISTNAME = new String[ARRAYSIZE];
+	String[] ALBUMNAME = new String[ARRAYSIZE];
+	String[] SONGNAME = new String[ARRAYSIZE];
 	
 	/*******************************************************************************/
 	// Startup Procedures of program
@@ -40,7 +41,7 @@ public class Array {
 	}
 	
 	void quit(){
-		System.out.println("");
+		System.out.println();
 		System.out.println("Thank you for using this program");
 		System.out.println("Copyright - Brayan Quevedo 2019");
 		System.exit(0);
@@ -109,7 +110,7 @@ public class Array {
 	void redirUser(){
 		switch(userSelectOption){
 			case 'A':
-				break;
+				userAddsMusic();
 			case'U':
 				break;
 			case 'S':
@@ -119,26 +120,149 @@ public class Array {
 				quit();
 		}
 	}
+
+	// User gets to add data into array
+	private void userAddsMusic(){
+
+		/*
+		* THE COMPUTER WILL GO THROUGH THE SONG NAME ARRAY
+		* IT WILL GO AFTER EACH SONG TO LOOK FOR A BLANK ""
+		* AND IF IT FINDS ONE THEN IT WILL GO THROUGH THE ARTIST AND
+		* ALBUMNAME AND IF ALL COME OUT FINE THEN THE USER CAN ADD INFORMATION
+		* INTO THAT SECTION OF THE ARRAY
+		* */
+
+		boolean userAddedMusic = false;
+
+		for (int i = 0; i < ARRAYSIZE; i++){
+
+			// Make sure that the user adds only one set of music
+			if (userAddedMusic == false) {
+
+				// Look through each song in the array for blank spaces
+				if (SONGNAME[i] == "") {
+
+					// Look through the album array for blank spaces
+					if (ALBUMNAME[i] == "") {
+
+						// Look through the artist array for blank spaces
+						if (ARTISTNAME[i] == "") {
+
+							// User can start to add data
+							System.out.println("");
+
+							System.out.print("Please enter the song name: ");
+							SONGNAME[i] = Keyboard.readString();
+
+							System.out.print("Please enter the album name: ");
+							ALBUMNAME[i] = Keyboard.readString();
+
+							System.out.println("Please enter the artistname: ");
+							ARTISTNAME[i] = Keyboard.readString();
+
+							userAddedMusic = true; // To not make the user add more music
+						}
+					}
+				}
+			}
+		}
+	}
 	
 		// User chooses how they want to see their music
 		public void howToDisplayMusic(){
 			char userSelect;
 			
-			System.out.println("");
+			System.out.println();
 			System.out.println("How would you like to see your music?");
 			System.out.println("[S]how music by number (1 - 100)");
 			System.out.println("S[H]ow music from A-Z");
+			System.out.println("Sh[O]w albums from A-Z");
+			System.out.println("Sho[W] artists from A-Z");
 			
-			System.out.print("Please make a selction: ");
+			System.out.print("Please make a selection: ");
 			userSelect = Keyboard.readChar();
 			userSelect = Character.toUpperCase(userSelect);
 			
-			switch(userSelect){
-			case('S'):
-				showMusic();
+			switch(userSelect) {
+				case ('S'):
+					showMusic();
+
+				case ('H'):
+					sortSongNameArrayAZ();
+
+				case ('O'):
+
+
+				case('W'):
+					sortArtistNameArrayAZ();
 			}
 		}
-	
+
+		// Sort the array (song title) A-Z
+		void sortSongNameArrayAZ(){
+			int size = SONGNAME.length;
+
+			for (int i = 0; i < size - 1; i++){
+				for (int j = i + 1; j < SONGNAME.length; j++){
+					if (SONGNAME[i].compareTo(SONGNAME[j]) > 0){
+
+						String temp = SONGNAME[i];
+						SONGNAME[i] = SONGNAME[j];
+						SONGNAME[j] = temp;
+
+					}
+				}
+			}
+			System.out.println("Songs From A-Z");
+
+			for (int i = 0; i < ARRAYSIZE; i++) {
+				System.out.println("Song: " + SONGNAME[i]);
+			}
+		}
+
+		// Sort the array (Artist name) A-z
+		void sortArtistNameArrayAZ(){
+			int size = ARTISTNAME.length;
+
+			for (int i = 0; i < size - 1; i++){
+				for (int j = i + 1; j < ARTISTNAME.length; j++){
+					if (ARTISTNAME[i].compareTo(ARTISTNAME[j]) > 0){
+
+						String temp = ARTISTNAME[i];
+						ARTISTNAME[i] = ARTISTNAME[j];
+						ARTISTNAME[j] = temp;
+
+					}
+				}
+			}
+			System.out.println("Artists From A-Z");
+
+			for (int i = 0; i < ARRAYSIZE; i++) {
+				System.out.println("Artist: " + ARTISTNAME[i]);
+			}
+		}
+
+		// Sort the array (Album name) A-Z
+		void sortAlbumNameArrayAZ(){
+			int size = ALBUMNAME.length;
+
+			for (int i = 0; i < size - 1; i++){
+				for (int j = i + 1; j < ALBUMNAME.length; j++){
+					if (ALBUMNAME[i].compareTo(ALBUMNAME[j]) > 0){
+
+						String temp = ALBUMNAME[i];
+						ALBUMNAME[i] = ALBUMNAME[j];
+						ALBUMNAME[j] = temp;
+					}
+				}
+			}
+			System.out.println("Albums From A-Z");
+
+			for (int i = 0; i < ARRAYSIZE; i++) {
+				System.out.println("Album: " + ALBUMNAME[i]);
+			}
+		}
+
 		//Makes the print statement aligned
 		public String makeItemsAligned(){
 			String returnVal = ""; // The amount of space that will be added
@@ -310,7 +434,7 @@ public class Array {
 				 
 			return returnVal;
 		}
-		
+
 		public String makeItemsAlignedAlbum(){
 			String returnValue = ""; // The amount of space that will be added
 			int howLongIsString = 0; // How Long is string
@@ -482,7 +606,7 @@ public class Array {
 			return returnValue;
 		}
 	
-	// Display all music in lib
+	// Display all music in lib by #
 	void showMusic(){
 		for (int y = 0; y < ARRAYSIZE; y++){
 			x = y; // Tell aligning methods what song we're on
