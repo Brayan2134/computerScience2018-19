@@ -6,7 +6,6 @@
  */
 
 import cs1.Keyboard;
-import java.util.Arrays;
 
 public class Array {
 
@@ -134,10 +133,10 @@ public class Array {
 
 		boolean userAddedMusic = false;
 
-		for (int i = 0; i < ARRAYSIZE; i++){
-
 			// Make sure that the user adds only one set of music
 			if (userAddedMusic == false) {
+				
+				for (int i = 0; i < ARRAYSIZE; i++){
 
 				// Look through each song in the array for blank spaces
 				if (SONGNAME[i] == "") {
@@ -157,16 +156,24 @@ public class Array {
 							System.out.print("Please enter the album name: ");
 							ALBUMNAME[i] = Keyboard.readString();
 
-							System.out.println("Please enter the artistname: ");
+							System.out.print("Please enter the artistname: ");
 							ARTISTNAME[i] = Keyboard.readString();
 
 							userAddedMusic = true; // To not make the user add more music
 						}
 					}
 				}
+				
+				// Break if user adds music
+				if (userAddedMusic == true){
+					break;
+				}
 			}
 		}
+			mainMenu();
 	}
+	
+	
 	
 		// User chooses how they want to see their music
 		public void howToDisplayMusic(){
@@ -186,16 +193,18 @@ public class Array {
 			switch(userSelect) {
 				case ('S'):
 					showMusic();
-
+					break;
 				case ('H'):
 					sortSongNameArrayAZ();
-
+					break;
 				case ('O'):
-
+					break;
 
 				case('W'):
 					sortArtistNameArrayAZ();
+					break;
 			}
+			mainMenu();
 		}
 
 		// Sort the array (song title) A-Z
