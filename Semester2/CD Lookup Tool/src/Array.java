@@ -185,6 +185,7 @@ public class Array {
 			System.out.println("S[H]ow music from A-Z");
 			System.out.println("Sh[O]w albums from A-Z");
 			System.out.println("Sho[W] artists from A-Z");
+			System.out.println("S[E]arch Music");
 			
 			System.out.print("Please make a selection: ");
 			userSelect = Keyboard.readChar();
@@ -198,13 +199,77 @@ public class Array {
 					sortSongNameArrayAZ();
 					break;
 				case ('O'):
+					sortAlbumNameArrayAZ();
 					break;
-
 				case('W'):
 					sortArtistNameArrayAZ();
 					break;
+				case('E'):
+					searchForMusic();
+					break;
 			}
 			mainMenu();
+		}
+
+		// User can search for a specific song/album/album
+		void searchForMusic(){
+			int resultsFound = 0; // How many results were found when searching
+			char searchType; // The type of search that will be conducted
+			String search; // Used for search
+			String tempSearch; // Allocate array data to var
+
+			System.out.println();
+			System.out.println("Please select a type of search: ");
+			System.out.println("[S]ongs");
+			System.out.println("[A]lbums");
+			System.out.println("A[R]tists");
+			System.out.println();
+			System.out.print("Please make a selection: ");
+			searchType = Keyboard.readChar();
+
+			searchType = Character.toUpperCase(searchType);
+			// End Menu
+
+			/*
+			* STRUCTURE OF THIS SUB SECTION
+			* -------------------------------
+			*
+			* User chose the type of search they want
+			*
+			* Then user types what they want to search
+			*
+			* Display available results
+			*
+			* */
+
+			// User wants to search for songs
+			if (searchType == 'S'){
+				System.out.print("What do you want to search: ");
+				search = Keyboard.readString();
+
+				// Search through Array
+				for (int i = 0; i < ARRAYSIZE; i++){
+					tempSearch = SONGNAME[i];
+
+					// Lower case both search index's
+					tempSearch.toLowerCase();
+					search.toLowerCase();
+
+					
+				}
+
+			}// End Song Search
+
+			// Album Search
+			if (searchType == 'A'){
+
+			}// End Album search
+
+			// Artist Search
+			if (searchType == 'R'){
+
+			} // End Artist search
+
 		}
 
 		// Sort the array (song title) A-Z
